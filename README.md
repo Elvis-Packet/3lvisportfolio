@@ -1,36 +1,74 @@
-# PROJEK PORTFOLIO ZAIN AHMAD FAHREZI
+# ELVIS PORTFOLIO
 
-Ini adalah proyek React yang dikembangkan menggunakan Vite — sebuah build tool modern dengan performa tinggi, dukungan Hot Module Replacement (HMR), dan waktu pengembangan yang cepat. Proyek ini menampilkan portfolio interaktif dengan elemen 3D dan animasi yang halus.
+A modern, interactive portfolio built with React and Vite featuring 3D animations, smooth transitions, and a responsive design. This project showcases projects, certificates, and skills with a sleek dark/light theme toggle.
 
-> ⚠️ Proyek ini masih dalam **tahap pengembangan aktif**. Mohon tidak menyalin, menjiplak, atau mendistribusikan ulang sebagian atau seluruh isi proyek ini **tanpa mencantumkan sumber atau izin dari pembuat.**
-
----
-
-## 📆 Teknologi yang Digunakan
-
-### Core & Frontend
-* ⚛️ [React](https://react.dev/)
-* ⚡ [Vite](https://vitejs.dev/)
-* 💨 [Tailwind CSS](https://tailwindcss.com/)
-* 🧪 [ESLint](https://eslint.org/)
-
-### Backend & Database
-* 🔥 [Supabase](https://supabase.com/)
-
-### Animasi & 3D
-* 🧊 [Three.js](https://threejs.org/) & [React Three Fiber](https://docs.pmnd.rs/react-three-fiber)
-* 🎬 [Framer Motion](https://www.framer.com/motion/)
-* 🎭 [GSAP](https://greensock.com/gsap/)
+> ⚠️ **Active Development**. Please respect the original work — do not copy, modify, or redistribute without proper attribution.
 
 ---
 
-## 🛠️ Cara Menjalankan Proyek Ini
+## 🛠️ Tech Stack
 
-1. **Clone repositori ini:**
+### Frontend
+
+- ⚛️ [React](https://react.dev/) - UI library
+- ⚡ [Vite](https://vitejs.dev/) - Lightning-fast build tool with HMR
+- 💨 [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- 🎨 [PostCSS](https://postcss.org/) - CSS processing
+
+### Backend & Data
+
+- 🔥 [Supabase](https://supabase.com/) - PostgreSQL + real-time APIs
+- 📡 Fetch API for data handling
+
+### Animations & 3D
+
+- 🎬 [Framer Motion](https://www.framer.com/motion/) - Smooth React animations
+- 🧊 [Three.js](https://threejs.org/) & [React Three Fiber](https://docs.pmnd.rs/react-three-fiber) - 3D graphics
+- 🎭 [GSAP](https://greensock.com/gsap/) - Advanced animation library
+- 🎯 [Spline](https://spline.design/) - 3D model integration
+
+### UI & Icons
+
+- 📦 [Lucide React](https://lucide.dev/) - Modern icons
+- 👤 [React Icons](https://react-icons.github.io/react-icons/) - Icon library
+- 🔄 [React Router DOM](https://reactrouter.com/) - Client-side routing
+
+### Development
+
+- 🧪 [ESLint](https://eslint.org/) - Code quality assurance
+- 🎯 [Tailwind Merge](https://github.com/dcastil/tailwind-merge) - Tailwind class merging
+
+---
+
+## ✨ Features
+
+- 🌓 **Dark/Light Theme Toggle** - Seamless theme switching with persistent state
+- 📱 **Fully Responsive** - Mobile-first design that works on all devices
+- 🎨 **Smooth Animations** - Framer Motion & GSAP powered transitions
+- 🎯 **3D Models** - Integrated Spline 3D assets
+- 📊 **Projects Showcase** - Dynamic projects loaded from Supabase
+- 🎖️ **Certificates Section** - Display professional achievements
+- 💼 **Skills Display** - Organized skill categories
+- 📬 **Contact Form** - Integrated contact functionality
+- 🚀 **Performance Optimized** - Lazy loading & code splitting
+- 🎪 **Interactive UI** - Engaging hover effects and transitions
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js (v16+)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/username/zain-portofolio.git
-   cd zain-portofolio
+   git clone https://github.com/yourusername/elvis-portfolio.git
+   cd elvis-portfolio
    ```
 
 2. **Install dependencies:**
@@ -39,60 +77,119 @@ Ini adalah proyek React yang dikembangkan menggunakan Vite — sebuah build tool
    npm install
    ```
 
-3. **Konfigurasi Environment:**
+3. **Set up environment variables:**
 
-   Salin file `.env.example` menjadi `.env`:
    ```bash
-   cp .env.example .env
+   cp .env.example .env.local
    ```
-   *Pastikan variabel environment untuk Supabase sudah terisi dengan benar.*
 
-4. **Jalankan project secara lokal:**
+   Update `.env.local` with your Supabase credentials:
+
+   ```env
+   VITE_SUPABASE_URL=your_supabase_project_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   VITE_API_URL=http://localhost:5173/api
+   ```
+
+4. **Start the development server:**
 
    ```bash
    npm run dev
    ```
 
-   Setelah itu buka browser ke: [http://localhost:5173](http://localhost:5173)
+   Open [http://localhost:5173](http://localhost:5173) in your browser
 
-5. **Build untuk produksi (opsional):**
-
+5. **Build for production:**
    ```bash
    npm run build
    ```
+   The optimized files will be in the `dist/` folder
 
 ---
 
-## ❗ Hak Cipta & Lisensi
+## 📝 Available Commands
 
-Proyek ini adalah karya asli milik **Zain Ahmad Fahrezi** dan hanya diperbolehkan untuk digunakan sebagai referensi pribadi.
-
-🚫 **Dilarang keras menjiplak, mengupload ulang, atau menggunakan sebagian/keseluruhan kode tanpa mencantumkan sumber atau tanpa izin.**
-
-📄 Untuk informasi lisensi atau kerja sama, silakan hubungi saya langsung melalui GitHub.
-
----
-
-## 📌 Catatan Tambahan
-
-Jika kamu ingin mengembangkan proyek ini lebih lanjut atau menggunakan sebagian ide/kodenya, **wajib mencantumkan sumber dengan link ke repositori ini**.
-
-Terima kasih sudah menghargai karya pengembang! 🙏
+- `npm run dev` - Start development server with HMR
+- `npm run build` - Create an optimized production build
+- `npm run lint` - Run ESLint to check code quality
+- `npm run preview` - Preview the production build locally
 
 ---
 
-## 💖 Dukung Pengembang
+## 📁 Project Structure
 
-Jika kamu merasa proyek ini bermanfaat dan ingin memberikan dukungan:
+```
+src/
+├── components/          # Reusable UI components
+│   ├── Lanyard/        # Lanyard/card related components
+│   └── ProfileCard/    # Profile card styling
+├── pages/              # Page components (Home, Gallery)
+├── contexts/           # React Context (Theme, Navbar)
+├── data/               # Static data files
+├── lib/                # Utilities & helper functions
+├── services/           # API calls & business logic
+├── assets/             # Images, fonts, 3D models
+└── App.jsx            # Root component
+```
 
-* 💳 **Dana:** 0896-0433-2830
-* 🏦 **Rekening BRI:** 0342 0107 8321 503 a.n. Zain Ahmad Fahrezi
-* 🅿️ **PayPal:** [paypal.me/zainahmadfahrezi](https://paypal.me/zainahmadfahrezi)
+---
 
-Setiap dukungan sangat berarti dan membantu saya untuk terus mengembangkan proyek-proyek open source lainnya. Terima kasih! 🙌
+## 🔧 Configuration
 
-## 🌐 Sosial Media
+### Tailwind CSS
 
-* 💼 [LinkedIn](https://www.linkedin.com/in/zainahmadfahrezi)
-* 📸 Instagram: [@zain.ahmadf](https://www.instagram.com/zain.ahmadf)
-* 🎥 TikTok: [@zainahmad.f](https://www.tiktok.com/@zainahmad.f)
+Customized via [tailwind.config.js](tailwind.config.js) - modify theme colors, fonts, and breakpoints here.
+
+### Vite
+
+Build configuration in [vite.config.js](vite.config.js) - includes React plugin and optimization settings.
+
+### PostCSS
+
+Configured in [postcss.config.js](postcss.config.js) for Tailwind integration.
+
+---
+
+## 🌐 Deployment
+
+This project is ready for deployment on:
+
+- **Vercel** (recommended) - Zero-config deployment
+- **Netlify** - Simple Git integration
+- **GitHub Pages** - Static hosting
+- **Any Node.js Host** - Using `npm run build`
+
+### Vercel Deployment
+
+The [vercel.json](vercel.json) is pre-configured for Vercel hosting.
+
+---
+
+## 📜 License & Copyright
+
+© 2024 Elvis Portfolio. All rights reserved.
+
+🚫 **Unauthorized copying, modification, or redistribution of this project is strictly prohibited without proper attribution and permission from the creator.**
+
+For licensing inquiries or collaborations, please contact the creator directly.
+
+---
+
+## 🤝 Contributing
+
+This is a personal portfolio project. If you'd like to contribute or use parts of this code:
+
+1. Always provide proper attribution
+2. Request permission from the creator
+3. Link back to the original repository
+4. Respect the license
+
+---
+
+## 📧 Contact & Support
+
+For questions, suggestions, or permission requests, please reach out through the contact form in the portfolio or contact the creator directly.
+
+---
+
+**Made with ❤️ by Elvis**
