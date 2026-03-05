@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaDownload, FaExternalLinkAlt, FaTimes } from 'react-icons/fa';
-import { supabase } from '../lib/supabase';
+import { certificatesData } from '../data/certificates';
 
 const CertificatesFromDB = () => {
   const [certificates, setCertificates] = useState([]);
@@ -12,28 +12,12 @@ const CertificatesFromDB = () => {
   const [visibleCount, setVisibleCount] = useState(INITIAL_SHOW);
 
   useEffect(() => {
-    async function fetchCertificates() {
-      try {
-        setLoading(true);
-        const { data, error } = await supabase
-          .from('certificates')
-          .select('*')
-          .order('issue_date', { ascending: false });
-
-        if (error) throw error;
-
-        if (data && data.length > 0) {
-          setCertificates(data);
-        }
-      } catch (err) {
-        console.error('Error fetching certificates:', err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchCertificates();
+    // Use local certificate data
+    const sortedData = [...certificatesData].sort(
+      (a, b) => new Date(b.issue_date) - new Date(a.issue_date)
+    );
+    setCertificates(sortedData);
+    setLoading(false);
   }, []);
 
   const formatDate = (dateString) => {
@@ -53,17 +37,6 @@ const CertificatesFromDB = () => {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <div className="w-8 h-8 bg-emerald-400/20 rounded-full animate-pulse"></div>
           </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="text-center py-12">
-        <div className="inline-block p-6 bg-red-500/10 border border-red-500/30 rounded-2xl">
-          <p className="text-red-400 font-semibold mb-2">Failed to load certificates</p>
-          <p className="text-red-300/70 text-sm">{error}</p>
         </div>
       </div>
     );

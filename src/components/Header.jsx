@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
-import { FaShieldAlt, FaSun, FaMoon } from 'react-icons/fa';
-import bangzenLogo from '../assets/images/BGZENBGIJObulat.png';
+import { FaSun, FaMoon } from 'react-icons/fa';
+import bangzenLogo from '../assets/Lanyard/card-lanyard.png';
 import { useNavbar } from '../contexts/NavbarContext';
 import { useTheme } from '../contexts/ThemeContext';
-import { useAdmin } from '../contexts/AdminContext';
 import { useLocation, useNavigate } from 'react-router-dom';
-import AdminLogin from './AdminLogin';
-import AdminDashboard from './AdminDashboard';
 import { StaggeredMenu } from './StaggeredMenu';
 
 const CLIP_PATH =
@@ -16,11 +13,8 @@ const CLIP_PATH =
 const Header = () => {
   // const [isMenuOpen, setIsMenuOpen] = useState(false); // REPLACED BY CONTEXT
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showAdminLogin, setShowAdminLogin] = useState(false);
-  const [showAdminDashboard, setShowAdminDashboard] = useState(false);
 
   const { isNavbarVisible, hideNavbar, showNavbar, isMenuOpen, setIsMenuOpen } = useNavbar();
-  const { isAuthenticated, logout } = useAdmin();
   const { theme, toggleTheme } = useTheme();
 
   const location = useLocation();
@@ -47,38 +41,6 @@ const Header = () => {
       window.scrollTo(0, 0);
     }
   }, [location]);
-
-  const handleAdminAccess = () => {
-    if (isAuthenticated) {
-      setShowAdminDashboard(true);
-      hideNavbar();
-    } else {
-      setShowAdminLogin(true);
-      hideNavbar();
-    }
-  };
-
-  const handleLoginSuccess = () => {
-    setShowAdminLogin(false);
-    setShowAdminDashboard(true);
-    hideNavbar();
-  };
-
-  const handleAdminLogout = () => {
-    logout();
-    setShowAdminDashboard(false);
-    showNavbar();
-  };
-
-  const handleCloseAdminDashboard = () => {
-    setShowAdminDashboard(false);
-    showNavbar();
-  };
-
-  const handleCloseAdminLogin = () => {
-    setShowAdminLogin(false);
-    showNavbar();
-  };
 
   // Improved Navigation Handler
   const handleNavClick = (e, href) => {
@@ -188,7 +150,7 @@ const Header = () => {
                   <a href="/" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center gap-3">
                     <img src={bangzenLogo} alt="Bangzen Logo" className="h-12 w-12 flex-shrink-0" />
                     <div>
-                      <h1 className="font-moderniz text-sm dark:text-[#00ffdc] text-slate-800 whitespace-nowrap">Zain Ahmad Fahrezi</h1>
+                      <h1 className="font-moderniz text-sm dark:text-[#00ffdc] text-slate-800 whitespace-nowrap">Elvis Mbugua Muchiri</h1>
                       <p className="font-moderniz text-[9px] dark:text-[#00ffdc] text-slate-600" style={{ textShadow: 'none' }}>
                         Let's see the awesome Experience
                       </p>
@@ -217,14 +179,14 @@ const Header = () => {
                   >
                     <img src={bangzenLogo} alt="Bangzen Logo" className="h-12 w-12" />
                     <div className="block">
-                      <h1 className="font-moderniz text-base dark:text-[#00ffdc] text-slate-800">Zain Ahmad Fahrezi</h1>
+                      <h1 className="font-moderniz text-base dark:text-[#00ffdc] text-slate-800">Elvis Mbugua Muchiri</h1>
                       <p className="font-moderniz text-[10px] dark:text-[#00ffdc] text-slate-600" style={{ textShadow: 'none' }}>
                         Let's see the awesome Experience
                       </p>
                     </div>
                   </a>
 
-                  {/* Desktop: Right Navigation & Admin Button (End) */}
+                  {/* Desktop: Right Navigation & Social */}
                   <div className="justify-self-end flex items-center gap-4">
                     {/* Theme Toggle */}
                     {/* Theme Toggle Removed - Moved to FloatingToggle */}
@@ -234,13 +196,6 @@ const Header = () => {
                       <NavLink href="#about">About</NavLink>
                       <NavLink href="#contact">Contact</NavLink>
                     </ul>
-                    <button
-                      onClick={handleAdminAccess}
-                      className="flex items-center gap-2 dark:text-slate-400 text-slate-500 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors duration-300 pointer-events-auto"
-                      title={isAuthenticated ? "Admin Dashboard" : "Admin Login"}
-                    >
-                      <FaShieldAlt className={`text-lg ${isAuthenticated ? 'text-green-500' : 'currentColor'}`} />
-                    </button>
                   </div>
                 </div>
 
@@ -261,26 +216,11 @@ const Header = () => {
           { label: 'About', link: '#about', onClick: (e) => handleNavClick(e, '#about') },
           { label: 'Contact', link: '#contact', onClick: (e) => handleNavClick(e, '#contact') },
         ]}
-        socialItems={[
-          { label: 'Admin', link: '#', onClick: (e) => { e.preventDefault(); handleAdminAccess(); } }
-        ]}
+        socialItems={[]}
         displaySocials={true}
         displayItemNumbering={true}
         colors={['#0891b2', '#06b6d4', '#155e75']} // Cyan palette
         accentColor="#06b6d4"
-      />
-
-      {/* Admin Login Modal */}
-      <AdminLogin
-        isOpen={showAdminLogin}
-        onClose={handleCloseAdminLogin}
-        onSuccess={handleLoginSuccess}
-      />
-
-      {/* UNIFIED Admin Dashboard */}
-      <AdminDashboard
-        isOpen={showAdminDashboard}
-        onClose={handleCloseAdminDashboard}
       />
 
       {/* Animasi gradient keyframes */}

@@ -4,7 +4,6 @@ import { AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
 import Squares from './components/Squares';
 import { NavbarProvider } from './contexts/NavbarContext';
-import { AdminProvider } from './contexts/AdminContext';
 import { useTheme } from './contexts/ThemeContext';
 import FloatingThemeToggle from './components/FloatingThemeToggle';
 
@@ -17,9 +16,8 @@ function App() {
   const location = useLocation();
 
   return (
-    <AdminProvider>
-      <NavbarProvider>
-        <div className="relative min-h-screen dark:bg-[#060010] bg-slate-50 transition-colors duration-500 overflow-hidden">
+    <NavbarProvider>
+      <div className="relative min-h-screen dark:bg-[#060010] bg-slate-50 transition-colors duration-500 overflow-hidden">
           {/* Global Background Animation */}
           <div className="fixed inset-0 z-0">
             <Squares
@@ -46,7 +44,7 @@ function App() {
           <FloatingThemeToggle />
         </div>
       </NavbarProvider>
-    </AdminProvider>
+
   );
 }
 

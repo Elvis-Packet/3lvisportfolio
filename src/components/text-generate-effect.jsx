@@ -9,21 +9,26 @@ const TextGenerateEffect = ({
   duration = 0.5,
 }) => {
   const [scope, animate] = useAnimate();
-  let wordsArray = words.split(" ");
+  let wordsArray = typeof words === 'string' ? words.split(" ") : [];
 
   useEffect(() => {
-    animate(
-      "span",
-      {
-        opacity: 0.6,
-        filter: filter ? "blur(0px)" : "none",
-      },
-      {
-        duration: duration,
-        delay: stagger(0.2),
-      }
-    );
-  }, [scope.current]);
+    // Only animate if there are words to animate
+    if (wordsArray.length > 0 && scope.current) {
+      animate(
+        "span",
+        {
+          opacity: 0.6,
+          filter: filter ? "blur(0px)" : "none",
+        },
+        {
+          duration: duration,
+          delay: stagger(0.2),
+        }
+      ).catch(() => {
+        // Silently handle animation errors
+      });
+    }
+  }, [scope.current, wordsArray.length, animate, filter, duration]);
 
   const renderWords = () => {
     return (

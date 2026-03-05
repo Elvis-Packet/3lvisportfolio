@@ -2,12 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  FaExternalLinkAlt, FaReact, FaNodeJs, FaHtml5, FaCss3Alt,
-  FaJsSquare, FaTools, FaFigma, FaGithub, FaTimes, FaDownload
+  FaExternalLinkAlt, FaReact, FaHtml5, FaCss3Alt,
+  FaJsSquare, FaTools, FaFigma, FaGithub, FaTimes, FaDownload, FaServer, FaCloud
 } from 'react-icons/fa';
 import {
-  SiTailwindcss, SiNextdotjs, SiVercel, SiMongodb,
-  SiExpress, SiPostgresql
+  SiTailwindcss, SiNextdotjs, SiVercel,
+  SiPostgresql, SiPython, SiFlask
 } from 'react-icons/si';
 import { PiCodeBold } from "react-icons/pi";
 import { LuBadge } from "react-icons/lu";
@@ -28,10 +28,10 @@ const dummyProjects = [
     category: "Web/Apps",
   },
   {
-    title: "E-Commerce API",
-    description: "RESTful API untuk platform e-commerce dengan fitur otentikasi, manajemen produk, dan transaksi.",
-    tech: ["Node.js", "Express", "MongoDB", "JWT"],
-    link: "https://github.com/username/ecommerce-api",
+    title: "Backend API",
+    description: "REST API dengan Python Flask untuk platform dengan fitur otentikasi, manajemen produk, dan transaksi.",
+    tech: ["Python", "Flask", "PostgreSQL", "JWT"],
+    link: "https://github.com/username/backend-api",
     image: "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=2072&auto=format&fit=crop",
     category: "Web/Apps",
   },
@@ -62,102 +62,24 @@ const dummyProjects = [
 ];
 
 // ===================================
-// DATA SERTIFIKAT ZAIN AHMAD FAHREZI
+// DATA SERTIFIKAT ELVIS MBUGUA MUCHIRI
 // ===================================
 const userCertificates = [
   {
-    title: "Belajar Membuat Aplikasi Web dengan React",
-    issuer: "Dicoding Indonesia",
-    date: "Des 2024",
-    link: "/certificates/Belajar Membuat Aplikasi Web dengan React.pdf",
-    image: "/certificate-images/Belajar Membuat Aplikasi Web dengan React.jpg",
+    title: "AI Certificate",
+    issuer: "Your Institution",
+    date: "Dec 2024",
+    link: "/certificates/Elvis-mbugua_certificate_AI.pdf",
+    image: "/certificate-images/Elvis_Mbugua_AI.jpeg",
   },
   {
-    title: "Belajar Dasar Pemrograman JavaScript",
-    issuer: "Dicoding Indonesia",
-    date: "Des 2024",
-    link: "/certificates/Belajar Dasar Pemrograman JavaScript.pdf",
-    image: "/certificate-images/Belajar Dasar Pemrograman JavaScript.jpg",
-  },
-  {
-    title: "Junior Web Developer (BNSP)",
-    issuer: "Badan Nasional Sertifikasi Profesi (BNSP)",
-    date: "Sep 2024",
-    link: "/certificates/SERTIFIKAT BNSP JUNIOR WEB DEVELOPER ZAIN AHMAD FAHREZI.jpeg",
-    image: "/certificate-images/SERTIFIKAT BNSP JUNIOR WEB DEVELOPER ZAIN AHMAD FAHREZI.jpg",
-  },
-  {
-    title: "Belajar Membuat Front-End Web untuk Pemula",
-    issuer: "Dicoding Indonesia",
-    date: "Des 2024",
-    link: "/certificates/Belajar Membuat Front-End Web untuk Pemula.pdf",
-    image: "/certificate-images/Belajar Membuat Front-End Web untuk Pemula.jpg",
-  },
-  {
-    title: "Operator Komputer Madya (BNSP)",
-    issuer: "Badan Nasional Sertifikasi Profesi (BNSP)",
-    date: "Des 2024",
-    link: "/certificates/Operator Komputer Madya BNSP.jpeg",
-    image: "/certificate-images/Operator Komputer Madya BNSP.jpg",
-  },
-  {
-    title: "Belajar Dasar Data Science",
-    issuer: "Dicoding Indonesia",
-    date: "Okt 2024",
-    link: "/certificates/Belajar Dasar Data Science.pdf",
-    image: "/certificate-images/Belajar Dasar Data Science.jpg",
-  },
-  {
-    title: "Belajar Dasar Structured Query Language (SQL)",
-    issuer: "Dicoding Indonesia",
-    date: "Okt 2024",
-    link: "/certificates/Belajar Dasar Structured Query Language (SQL).pdf",
-    image: "/certificate-images/Belajar Dasar Structured Query Language (SQL).jpg",
-  },
-  {
-    title: "Belajar Dasar AI",
-    issuer: "Dicoding Indonesia",
-    date: "Sep 2024",
-    link: "/certificates/Belajar Dasar AI.pdf",
-    image: "/certificate-images/Belajar Dasar AI.jpg",
-  },
-  {
-    title: "Belajar Dasar Manajemen Proyek",
-    issuer: "Dicoding Indonesia",
-    date: "Sep 2024",
-    link: "/certificates/Belajar Dasar Manajemen Proyek.pdf",
-    image: "/certificate-images/Belajar Dasar Manajemen Proyek.jpg",
-  },
-  {
-    title: "Operator Komputer Madya (VSGA)",
-    issuer: "Digital Talent Scholarship",
-    date: "Agu 2024",
-    link: "/certificates/Operator Komputer Madya VSGA.pdf",
-    image: "/certificate-images/Operator Komputer Madya VSGA.jpg",
-  },
-  {
-    title: "Junior Web Developer (VSGA)",
-    issuer: "Kominfo",
-    date: "Jul 2024",
-    link: "/certificates/Junior Web Developer VSGA.pdf",
-    image: "/certificate-images/Junior Web Developer VSGA.jpg",
-  },
-  {
-    title: "Java Fundamentals",
-    issuer: "Oracle",
-    date: "Jun 2024",
-    link: "/certificates/JAVA FUNDAMENTALS.pdf",
-    image: "/certificate-images/JAVA FUNDAMENTALS.jpg",
-  },
-  {
-    title: "Belajar Dasar Pemrograman Web",
-    issuer: "Dicoding Indonesia",
-    date: "Nov 2023",
-    link: "/certificates/Belajar Dasar Pemrograman Web.pdf",
-    image: "/certificate-images/Belajar Dasar Pemrograman Web.jpg",
+    title: "Software Development Certificate",
+    issuer: "Your Institution",
+    date: "Nov 2024",
+    link: "/certificates/Elvis _Software_Dev.jpeg",
+    image: "/certificate-images/Elvis _Software_Dev.jpeg",
   },
 ];
-
 const techStack = {
   frontend: [
     { name: "React", icon: <FaReact className="text-[#61DAFB]" /> },
@@ -168,18 +90,19 @@ const techStack = {
     { name: "CSS3", icon: <FaCss3Alt className="text-[#1572B6]" /> },
   ],
   backend: [
-    { name: "Node.js", icon: <FaNodeJs className="text-[#339933]" /> },
-    { name: "Express", icon: <SiExpress className="dark:text-white text-slate-900" /> },
+    { name: "Python", icon: <SiPython className="text-[#3776ab]" /> },
+    { name: "Flask", icon: <SiFlask className="dark:text-white text-slate-900" /> },
   ],
   database: [
-    { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
     { name: "PostgreSQL", icon: <SiPostgresql className="text-[#336791]" /> },
   ],
   tools: [
     { name: "Git & GitHub", icon: <FaGithub className="dark:text-white text-slate-900" /> },
-    { name: "Vercel", icon: <SiVercel className="dark:text-white text-slate-900" /> },
+    { name: "AWS", icon: <FaServer className="text-[#FF9900]" /> },
+    { name: "Digital Ocean", icon: <FaCloud className="text-[#0080FF]" /> },
+    { name: "Linux", icon: <FaTools className="text-[#FCC624]" /> },
     { name: "Figma", icon: <FaFigma className="text-[#F24E1E]" /> },
-    { name: "Tools Lain", icon: <FaTools className="text-gray-400" /> },
+    { name: "Vercel", icon: <SiVercel className="dark:text-white text-slate-900" /> },
   ],
 };
 
@@ -259,10 +182,10 @@ const ProjectDetailModal = ({ project, onClose }) => {
 
   const techIcons = {
     "Next.js": <SiNextdotjs />, "React": <FaReact />, "TailwindCSS": <SiTailwindcss />,
-    "Framer Motion": " गति ", "Node.js": <FaNodeJs />, "Express": <SiExpress />,
-    "MongoDB": <SiMongodb />, "JWT": "🔑", "Figma": <FaFigma />, "Storybook": "📚",
+    "Framer Motion": " गति ", "Python": <SiPython />, "Flask": <SiFlask />,
+    "PostgreSQL": <SiPostgresql />, "JWT": "🔑", "Figma": <FaFigma />, "Storybook": "📚",
     "JavaScript": <FaJsSquare />, "HTML5": <FaHtml5 />, "CSS3": <FaCss3Alt />,
-    "PostgreSQL": <SiPostgresql />, "Vercel": <SiVercel />, "Git & GitHub": <FaGithub />
+    "AWS": <FaServer />, "Digital Ocean": <FaCloud />, "Linux": <FaTools />, "Vercel": <SiVercel />, "Git & GitHub": <FaGithub />
   };
 
   return (
@@ -356,8 +279,8 @@ const ProjectDetailModal = ({ project, onClose }) => {
 const ProjectCard = ({ project, onClick }) => {
   const techIcons = {
     "Next.js": <SiNextdotjs />, "React": <FaReact />, "TailwindCSS": <SiTailwindcss />,
-    "Framer Motion": " गति ", "Node.js": <FaNodeJs />, "Express": <SiExpress />,
-    "MongoDB": <SiMongodb />, "JWT": "🔑", "Figma": <FaFigma />, "Storybook": "📚"
+    "Framer Motion": " गति ", "Python": <SiPython />, "Flask": <SiFlask />,
+    "PostgreSQL": <SiPostgresql />, "JWT": "🔑", "Figma": <FaFigma />, "Storybook": "📚"
   };
 
   return (
@@ -492,6 +415,11 @@ function ProjectSection() {
   // Fetch projects from database
   useEffect(() => {
     async function fetchProjects() {
+      if (!supabase) {
+        console.log('⚠️ Supabase not configured, using fallback data');
+        setLoadingProjects(false);
+        return;
+      }
       try {
         console.log('🔍 Fetching projects from Supabase...');
         const { data, error } = await supabase
@@ -523,6 +451,11 @@ function ProjectSection() {
   // Fetch certificates from database
   useEffect(() => {
     async function fetchCertificates() {
+      if (!supabase) {
+        console.log('⚠️ Supabase not configured, using fallback data');
+        setLoadingCerts(false);
+        return;
+      }
       try {
         console.log('🔍 Fetching certificates from Supabase...');
         const { data, error } = await supabase
@@ -720,11 +653,6 @@ function ProjectSection() {
                       ) : (
                         <div className="col-span-full text-center text-slate-400 py-12">
                           No projects available yet.
-                          {projectsFromDB.length === 0 && (
-                            <div className="mt-4 text-sm text-cyan-400">
-                              Add projects via Admin Dashboard to see them here!
-                            </div>
-                          )}
                         </div>
                       )}
                     </div>
