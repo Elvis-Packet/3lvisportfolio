@@ -17,8 +17,8 @@ const Home = () => {
     const { theme } = useTheme();
 
     const stats = [
-        { icon: <FaCode />, value: "13", title: "TOTAL PROJECTS", description: "Innovative web solutions crafted" },
-        { icon: <FaCertificate />, value: "13", title: "CERTIFICATES", description: "Professional skills validated" },
+        { icon: <FaCode />, value: "5", title: "TOTAL PROJECTS", description: "Innovative web solutions crafted" },
+        { icon: <FaCertificate />, value: "2", title: "CERTIFICATES", description: "Professional skills validated" },
         { icon: <FaGlobe />, value: "3", title: "YEARS OF EXPERIENCE", description: "Continuous learning journey" },
     ];
 
@@ -137,7 +137,7 @@ const Home = () => {
                             "No quarter given to comfort.No refuge for excuses.Only results remain."
                         </div>
                         <div className="flex flex-row sm:flex-row gap-4 mt-8 justify-center md:justify-start items-center">
-                            <ButtonMovingBorder as="a" href="/cv.pdf" download duration={3000} borderRadius="0.75rem" className="dark:bg-slate-900/[0.8] bg-white border dark:border-slate-800 border-slate-200 dark:text-white text-slate-800 font-semibold flex items-center justify-center gap-2 transition-all duration-300 dark:shadow-none shadow-md hover:shadow-lg dark:hover:shadow-[0_0_24px_8px_#40ffaa]">
+                            <ButtonMovingBorder as="a" href="/CV_ELVIS_MBUGUA_MUCHIRI.pdf" download duration={3000} borderRadius="0.75rem" className="dark:bg-slate-900/[0.8] bg-white border dark:border-slate-800 border-slate-200 dark:text-white text-slate-800 font-semibold flex items-center justify-center gap-2 transition-all duration-300 dark:shadow-none shadow-md hover:shadow-lg dark:hover:shadow-[0_0_24px_8px_#40ffaa]">
                                 <FaDownload /> Download CV
                             </ButtonMovingBorder>
                             <ButtonMovingBorder as="a" href="#projects" duration={3000} borderRadius="0.75rem" className="dark:bg-slate-900/[0.8] bg-white border dark:border-slate-800 border-slate-200 dark:text-white text-slate-800 font-semibold flex items-center justify-center gap-2 transition-all duration-300 dark:shadow-none shadow-md hover:shadow-lg dark:hover:shadow-[0_0_24px_8px_#40ffaa]">

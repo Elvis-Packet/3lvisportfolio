@@ -1,13 +1,13 @@
 {
-  "name": "zain-portofolio",
+  "name": "elvis-portfolio",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy:s3": "npm run build && aws s3 sync dist/ s3://elvis-mbugua-portfolio --delete --region us-east-1"
   },
   "dependencies": {
     "@react-three/drei": "^9.105.0",

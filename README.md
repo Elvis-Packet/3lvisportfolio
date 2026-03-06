@@ -134,38 +134,52 @@ src/
 
 ---
 
-## 🔧 Configuration
-
-### Tailwind CSS
-
-Customized via [tailwind.config.js](tailwind.config.js) - modify theme colors, fonts, and breakpoints here.
-
-### Vite
-
-Build configuration in [vite.config.js](vite.config.js) - includes React plugin and optimization settings.
-
-### PostCSS
-
-Configured in [postcss.config.js](postcss.config.js) for Tailwind integration.
-
----
-
 ## 🌐 Deployment
 
-This project is ready for deployment on:
+This project is optimized for deployment as a static website:
 
-- **Vercel** (recommended) - Zero-config deployment
+### Recommended Options
+
+- **AWS S3 + CloudFront** - High performance, cost-effective
+
+  ```bash
+  npm run deploy:s3
+  ```
+
+  See [DEPLOYMENT.md](./DEPLOYMENT.md) for setup guide
+
+- **Vercel** - Zero-config deployment
 - **Netlify** - Simple Git integration
 - **GitHub Pages** - Static hosting
-- **Any Node.js Host** - Using `npm run build`
 
-### Vercel Deployment
+### Build Process
 
-The [vercel.json](vercel.json) is pre-configured for Vercel hosting.
+```bash
+# Production build (optimized chunks, minification, code splitting)
+npm run build
+
+# Preview the production build locally
+npm run preview
+
+# Deploy to S3 (requires AWS CLI)
+npm run deploy:s3
+```
+
+### Build Output
+
+- **Size:** ~500KB-1.2MB (optimized)
+- **Load Time:** ~500ms-1s with CloudFront
+- **Chunks:** Automatically split for optimal delivery
+- **Minification:** All assets minified and compressed
+
+📖 **Deployment Guides:**
+
+- [AWS S3 & CloudFront Setup](./DEPLOYMENT.md)
+- [Complete AWS Reference](./AWS_S3_DEPLOYMENT.md)
 
 ---
 
-## 📜 License & Copyright
+## �📜 License & Copyright
 
 © 2024 Elvis Portfolio. All rights reserved.
 

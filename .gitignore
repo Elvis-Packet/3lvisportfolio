@@ -13,6 +13,16 @@ dist
 dist-ssr
 *.local
 
+# Python & Virtual Environments
+.venv
+.env
+venv/
+ENV/
+env/
+*.pyc
+__pycache__/
+generate_cv_pdf.py
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
