@@ -9,7 +9,6 @@ import FloatingThemeToggle from './components/FloatingThemeToggle';
 
 // Pages
 import Home from './pages/Home';
-import Gallery from './pages/Gallery';
 
 function App() {
   const { theme } = useTheme();
@@ -37,7 +36,6 @@ function App() {
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<Home />} />
-              <Route path="/gallery" element={<Gallery />} />
             </Routes>
           </AnimatePresence>
 

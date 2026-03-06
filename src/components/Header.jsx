@@ -63,11 +63,9 @@ const Header = () => {
     }
   };
 
-  const NavLink = ({ href, children, isGallery }) => {
+  const NavLink = ({ href, children }) => {
     // Check active state
-    const isActive = isGallery
-      ? location.pathname === '/gallery'
-      : location.pathname === '/' && location.hash === href;
+    const isActive = location.pathname === '/' && location.hash === href;
 
     return (
       <li>
@@ -168,7 +166,6 @@ const Header = () => {
                   <ul className="justify-self-start flex items-center list-none gap-8 lg:gap-10">
                     <NavLink href="#home">Home</NavLink>
                     <NavLink href="#projects">Project</NavLink>
-                    <NavLink href="/gallery" isGallery>Gallery</NavLink>
                   </ul>
 
                   {/* Desktop: Center Logo & Text (Center) */}
@@ -212,7 +209,6 @@ const Header = () => {
         items={[
           { label: 'Home', link: '#home', onClick: (e) => handleNavClick(e, '#home') },
           { label: 'Project', link: '#projects', onClick: (e) => handleNavClick(e, '#projects') },
-          { label: 'Gallery', link: '/gallery', onClick: (e) => handleNavClick(e, '/gallery') },
           { label: 'About', link: '#about', onClick: (e) => handleNavClick(e, '#about') },
           { label: 'Contact', link: '#contact', onClick: (e) => handleNavClick(e, '#contact') },
         ]}

@@ -43,22 +43,6 @@ const dummyProjects = [
     image: "https://images.unsplash.com/photo-1600132806378-62402124d9e0?q=80&w=2070&auto=format&fit=crop",
     category: "Web/Apps",
   },
-  {
-    title: "3D Product Visualization",
-    description: "Desain 3D interaktif untuk showcase produk menggunakan Spline dan Blender.",
-    tech: ["Spline", "Blender"],
-    link: "#",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop",
-    category: "3D Design",
-  },
-  {
-    title: "Animated 3D Landing",
-    description: "Landing page dengan elemen 3D animasi untuk branding modern.",
-    tech: ["Spline", "Three.js"],
-    link: "#",
-    image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?q=80&w=2070&auto=format&fit=crop",
-    category: "3D Design",
-  },
 ];
 
 // ===================================
@@ -392,8 +376,11 @@ const CertificatePreviewModal = ({ certificate, onClose }) => {
 };
 
 // ===================================
-// KOMPONEN UTAMA SECTION PROJECT
+// IMPORT BLOGS COMPONENT
 // ===================================
+import Blogs from './Blogs';
+
+// KOMPONEN UTAMA SECTION PROJECT
 function ProjectSection() {
   const [activeTab, setActiveTab] = useState('Projects');
   const [projectCategory, setProjectCategory] = useState('Web/Apps');
@@ -632,7 +619,6 @@ function ProjectSection() {
                   {projectsFromDB.length === 0 && (
                     <div className="flex justify-center gap-4 mb-8">
                       <button className={`px-5 py-2 rounded-full font-semibold transition-all duration-200 border ${projectCategory === 'Web/Apps' ? 'bg-cyan-700/80 text-white border-cyan-400 shadow-cyan-500/10 shadow-lg' : 'bg-slate-900/60 text-cyan-200 border-slate-700 hover:bg-cyan-800/40 hover:text-white'}`} onClick={() => setProjectCategory('Web/Apps')}>Web/Apps</button>
-                      <button className={`px-5 py-2 rounded-full font-semibold transition-all duration-200 border ${projectCategory === '3D Design' ? 'bg-cyan-700/80 text-white border-cyan-400 shadow-cyan-500/10 shadow-lg' : 'bg-slate-900/60 text-cyan-200 border-slate-700 hover:bg-cyan-800/40 hover:text-white'}`} onClick={() => setProjectCategory('3D Design')}>3D Design</button>
                     </div>
                   )}
 
@@ -731,6 +717,11 @@ function ProjectSection() {
             </motion.div>
           </AnimatePresence>
         </div>
+      </div>
+
+      {/* Blogs Section */}
+      <div className="mt-20">
+        <Blogs />
       </div>
 
       <AnimatePresence>
