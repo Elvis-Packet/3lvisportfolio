@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Skills = () => {
-  const skillsList = ['React+vite', 'Javascript', 'python', 'flask', 'git', 'github', 'linux', 'cybersecurity', 'penetration testing', 'vulnerability research'];
+  const skillsList = ['cybersecurity', 'React+vite', 'Javascript', 'python', 'flask', 'git', 'github', 'linux', 'penetration testing', 'vulnerability research'];
 
   return (
     <div className="flex flex-row flex-wrap gap-3 mt-6 justify-center md:justify-start w-full">

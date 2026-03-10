@@ -8,7 +8,7 @@ const Preloader = ({ onFinished }) => {
   const [showContent, setShowContent] = useState(false);
   const [fadeOut, setFadeOut] = useState(false);
   const [isAssetLoaded, setIsAssetLoaded] = useState(false);
-  const fullText = "https://ElvisMbuguaMuchiri.dev";
+  const fullText = "https://3lvismbugua.website/";
 
   const handleAssetLoad = () => {
     setIsAssetLoaded(true);

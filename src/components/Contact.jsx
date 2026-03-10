@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   FaGithub,
   FaInstagram,
+  FaLinkedin,
   FaTiktok,
   FaPaperPlane,
   FaUser,
@@ -227,6 +228,13 @@ const Contact = () => {
       url: 'https://github.com/Elvis-Packet',
       color: 'from-gray-600 to-gray-800',
       hoverColor: 'hover:shadow-gray-500/25'
+    },
+    {
+      name: 'LinkedIn',
+      icon: <FaLinkedin />,
+      url: 'https://www.linkedin.com/in/elvis-mbugua-89b177331/',
+      color: 'from-blue-500 to-blue-700',
+      hoverColor: 'hover:shadow-blue-500/25'
     },
     {
       name: 'Instagram',

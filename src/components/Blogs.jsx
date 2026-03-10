@@ -1265,6 +1265,319 @@ Build organizational security awareness:
 
 The cloud security landscape is constantly evolving. Stay updated with AWS security announcements and continuously refine your security posture!
 `
+    },
+    {
+      id: 5,
+      title: "Mastering Google Dorking: A Complete Guide from Beginner to Advanced",
+      excerpt: "Learn advanced Google search techniques to find hidden information, vulnerable systems, and sensitive data exposed on the internet.",
+      category: "OSINT & Reconnaissance",
+      date: "March 2024",
+      readTime: "35 min read",
+      tags: ["Google Dorking", "OSINT", "Reconnaissance", "Information Gathering"],
+      image: "https://images.pexels.com/photos/3861943/pexels-photo-3861943.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop",
+      content: `# Mastering Google Dorking: A Complete Guide from Beginner to Advanced
+
+Google Dorking is an advanced search technique that leverages Google's search operators to find hidden, sensitive, or vulnerable information on the internet. It's an essential OSINT (Open Source Intelligence) tool for security researchers, penetration testers, and ethical hackers.
+
+## What is Google Dorking?
+
+Google Dorking uses specialized search operators and query syntax to pinpoint specific information that ordinary users might not find through regular searches. It's a powerful reconnaissance technique that can reveal:
+
+- Exposed configuration files
+- Sensitive credentials and API keys
+- Vulnerable systems and applications
+- Directory listings
+- Administrator panels and login pages
+- Sensitive documents and PDFs
+
+---
+
+## Essential Google Dork Operators
+
+### 1. **site:** - Search Within a Specific Domain
+\`\`\`
+site:example.com
+site:example.com filetype:pdf
+site:google.com inurl:admin
+\`\`\`
+
+**Use Cases:**
+- Find all pages indexed from a target domain
+- Locate specific file types on a domain
+- Discover subdomains through Google's index
+
+### 2. **inurl:** - Search for Keywords in URLs
+\`\`\`
+inurl:admin
+inurl:login
+inurl:wp-admin
+inurl:config.php
+\`\`\`
+
+**Examples:**
+- \`inurl:password\` - Find pages with "password" in the URL
+- \`inurl:backup\` - Locate backup files accessible via URL
+
+### 3. **intitle:** - Search for Keywords in Page Titles
+\`\`\`
+intitle:"admin login"
+intitle:"index of /"
+intitle:"webcam"
+intitle:"router admin"
+\`\`\`
+
+**Common Findings:**
+- Administrative panels
+- Directory listings vulnerable to browsing
+- Exposed system interfaces
+
+### 4. **intext:** - Search for Text Within Web Pages
+\`\`\`
+intext:"password" site:example.com
+intext:"api_key"
+intext:"confidential"
+\`\`\`
+
+### 5. **filetype:** - Find Specific File Types
+\`\`\`
+filetype:pdf site:example.com
+filetype:xlsx password
+filetype:conf
+filetype:sql
+\`\`\`
+
+**Common Sensitive File Types:**
+- \`.pdf\` - Documents and reports
+- \`.xlsx, .xls\` - Spreadsheets with data
+- \`.sql\` - Database backups
+- \`.conf\` - Configuration files
+- \`.log\` - Log files
+- \`.bak\` - Backup files
+
+---
+
+## Real-World Dork Examples
+
+### Finding Exposed Credentials
+
+\`\`\`
+intitle:"index of" ".git"
+intitle:"index of" "config" filetype:php
+inurl:api key=
+filetype:env "DATABASE_PASSWORD"
+\`\`\`
+
+### Discovering Vulnerable Web Servers
+\`\`\`
+intitle:"Apache Status" site:example.com
+intitle:"IIS" "Windows Server"
+inurl:cgi-bin
+\`\`\`
+
+### Finding Exposed Databases
+\`\`\`
+filetype:sql password
+intext:"CREATE TABLE" filetype:sql
+\`\`\`
+
+### Locating Admin Panels
+\`\`\`
+inurl:wp-admin
+inurl:/admin
+inurl:phpmyadmin
+intitle:"admin login"
+\`\`\`
+
+### Searching for Sensitive Documents
+\`\`\`
+filetype:pdf "confidential" "2024"
+filetype:xlsx salary OR budget
+intitle:"restricted" filetype:doc
+\`\`\`
+
+### Finding CCTV and Webcams
+\`\`\`
+intitle:"webcam" live view
+inurl:axis-cgi/jpg
+intitle:"Live View" "Axis"
+\`\`\`
+
+---
+
+## Advanced Dork Techniques
+
+### 1. **Combining Multiple Operators**
+\`\`\`
+site:example.com inurl:admin intitle:"login"
+site:example.com filetype:pdf "confidential"
+inurl:backup OR inurl:backup.sql filetype:sql
+\`\`\`
+
+### 2. **Using Boolean Operators**
+\`\`\`
+site:example.com (admin OR administrator)
+inurl:(config OR configuration) filetype:php
+filetype:sql (password OR secret OR key)
+\`\`\`
+
+### 3. **Wildcard Searches**
+\`\`\`
+site:*.example.com admin
+inurl:backup*
+\`\`\`
+
+### 4. **Negative Search (Exclude Results)**
+\`\`\`
+intitle:admin -wordpress
+filetype:pdf confidential -public
+\`\`\`
+
+### 5. **Numeric Range Searches**
+\`\`\`
+inurl:id= 1..100
+\`\`\`
+
+---
+
+## Practical Google Dorking Scenarios
+
+### Scenario 1: Initial Reconnaissance on Target Organization
+\`\`\`
+site:target.com
+site:target.com filetype:pdf
+site:target.com inurl:admin
+site:target.com inurl:api
+\`\`\`
+
+### Scenario 2: Finding Exposed Configuration Files
+\`\`\`
+site:target.com filetype:conf
+site:target.com filetype:config.php
+site:target.com "database.yml"
+filetype:env "PASSWORD"
+\`\`\`
+
+### Scenario 3: Discovering Sensitive Information
+\`\`\`
+site:target.com filetype:xlsx salary
+site:target.com filetype:doc internal
+intext:"api_key" OR intext:"api_secret" site:target.com
+\`\`\`
+
+### Scenario 4: Locating Backup and Outdated Files
+\`\`\`
+site:target.com (backup OR old OR obsolete)
+site:target.com filetype:bak
+inurl:.git
+\`\`\`
+
+---
+
+## Legal and Ethical Considerations
+
+### ✅ Legal Use of Google Dorking
+
+1. **Authorized Security Testing** - With written permission from the system owner
+2. **Vulnerability Disclosure** - Reporting findings responsibly
+3. **Security Research** - Academic and professional research purposes
+4. **Public Information Gathering** - General OSINT on public data
+
+### ❌ Illegal Use Cases
+
+1. **Unauthorized Access** - Accessing systems without permission
+2. **Data Theft** - Extracting sensitive information unlawfully
+3. **Privacy Violation** - Harvesting personal information
+4. **Competitive Spying** - Gathering confidential business information
+
+**Legal Framework:**
+- Always obtain written authorization before testing
+- Follow responsible disclosure practices
+- Report findings to the organization privately first
+- Abide by local laws regarding computer access
+
+---
+
+## Defensive Measures Against Google Dorking
+
+### 1. **Robots.txt and Meta Tags**
+\`\`\`
+User-agent: Googlebot
+Disallow: /admin
+Disallow: /config
+\`\`\`
+
+\`\`\`html
+<meta name="robots" content="noindex, nofollow">
+\`\`\`
+
+### 2. **Remove Sensitive Files**
+- Delete backup files from web directories
+- Remove outdated configuration files
+- Clean up forgotten admin panels
+
+### 3. **Proper Access Controls**
+- Implement authentication for sensitive directories
+- Use robots.txt to prevent indexing
+- Configure .htaccess restrictions
+
+### 4. **Monitor Your Exposure**
+- Regularly search your domain on Google
+- Use tools like Google Search Console
+- Monitor for exposed credentials
+
+### 5. **Content Security**
+- Never hardcode secrets in version control
+- Use environment variables for sensitive data
+- Implement proper logging without exposing credentials
+
+---
+
+## Tools and Resources
+
+### OSINT Tools Complementing Google Dorking
+- **Shodan** - IoT and Infrastructure search engine
+- **Censys** - Internet-wide scanning and analysis
+- **BuiltWith** - Technology and website profiling
+- **WHOIS** - Domain and IP registration information
+- **DNSdumpster** - DNS reconnaissance tool
+
+### Browser Extensions
+- **Google Dorking Helper** - Syntax hints and operator documentation
+- **OSINT Extensions** - Enhanced search capabilities
+
+---
+
+## Best Practices for Effective Google Dorking
+
+1. **Start Broad, Then Narrow** - Begin with general searches, then refine
+2. **Combine Multiple Operators** - Use site: + filetype: + inurl: together
+3. **Test on Known Targets First** - Practice on your own infrastructure
+4. **Document Findings** - Keep detailed notes of search queries and results
+5. **Stay Updated** - Google operators change; research current techniques
+6. **Use Multiple Search Terms** - Different queries reveal different results
+7. **Monitor Results** - Set up alerts for sensitive information exposure
+
+---
+
+## Conclusion
+
+Google Dorking is a powerful OSINT technique that can reveal critical security gaps and exposed information. Whether you're a penetration tester, security researcher, or system administrator, mastering Google Dorking is essential for comprehensive security assessments.
+
+Remember: **With great power comes great responsibility.** Always use these techniques ethically and legally, with proper authorization and in compliance with applicable laws.
+
+---
+
+## References
+
+- Google Advanced Search: https://www.google.com/advanced_search
+- Google Search Operators: https://support.google.com/websearch/answer/2466433
+- OWASP OSINT: https://owasp.org/www-community/Gathering_information
+- Shodan: https://www.shodan.io
+- Censys: https://censys.io
+
+For more information about responsible disclosure and ethical hacking, visit:
+- https://medium.com/@puneetten/mastering-google-dorking-a-complete-guide-from-beginner-to-advanced-e0dc451fdc24
+`
     }
   ];
 

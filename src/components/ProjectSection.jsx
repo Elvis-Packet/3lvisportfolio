@@ -23,7 +23,7 @@ const dummyProjects = [
     title: "Portfolio v2",
     description: "Website portofolio pribadi yang dibangun dengan React, Next.js, dan Tailwind CSS, di-deploy di Vercel.",
     tech: ["Next.js", "React", "TailwindCSS", "Framer Motion"],
-    link: "https://github.com/username/portfolio",
+    link: "https://3lvismbugua.website/",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
     category: "Web/Apps",
   },
