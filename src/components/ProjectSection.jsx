@@ -5,7 +5,7 @@ import {
   FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaTools, FaFigma, FaGithub,
   FaTimes, FaDownload, FaServer, FaCloud, FaShieldAlt, FaBug, FaSearch,
   FaLock, FaCalendarAlt, FaCheck, FaGlobe, FaNetworkWired, FaFileAlt,
-  FaEye, FaCode, FaClipboardList, FaLightbulb, FaWrench
+  FaEye, FaCode, FaClipboardList, FaLightbulb, FaWrench, FaTerminal, FaTrophy
 } from 'react-icons/fa';
 import {
   SiTailwindcss, SiNextdotjs, SiVercel, SiPostgresql, SiPython, SiFlask
@@ -45,9 +45,19 @@ const categoryConfig = {
     barClass: 'from-red-500 to-red-600',
     icon: <FaBug />,
   },
+  'HTB Labs': {
+    badgeClass: 'dark:bg-orange-900/30 bg-orange-50 border-orange-400/30 dark:text-orange-300 text-orange-700',
+    barClass: 'from-orange-500 to-orange-600',
+    icon: <FaTerminal />,
+  },
+  'Bug Bounty': {
+    badgeClass: 'dark:bg-purple-900/30 bg-purple-50 border-purple-400/30 dark:text-purple-300 text-purple-700',
+    barClass: 'from-purple-500 to-purple-600',
+    icon: <FaTrophy />,
+  },
 };
 
-const PROJECT_CATEGORIES = ['All', 'Web Security', 'Cloud Security', 'Blue Team Operations', 'Network Security', 'Malware Analysis'];
+const PROJECT_CATEGORIES = ['All', 'Web Security', 'Cloud Security', 'Blue Team Operations', 'Network Security', 'Malware Analysis', 'HTB Labs', 'Bug Bounty'];
 
 // ===================================
 // CYBERSECURITY PROJECTS DATA
@@ -293,6 +303,54 @@ const cyberProjects = [
       remediation: 'Code security review report with remediation applied. Final tools published to private Git repository with README documentation and usage examples.',
     },
   },
+  {
+    id: 'bt-007',
+    title: 'The Gentlemen — Ransomware Threat Assessment',
+    category: 'Blue Team Operations',
+    skills: ['Threat Intelligence', 'MITRE ATT&CK Mapping', 'Detection Engineering', 'Threat Hunting (F3EAD)'],
+    description: 'Full adversary-to-detection threat assessment of a FortiGate-targeting ransomware operation for OmniRoute Logistics\' 42-country WAN — adversary profiling, MITRE ATT&CK mapping, and a complete detection engineering build covering Sigma, Splunk, Suricata, and Velociraptor.',
+    technologies: ['Sigma', 'Splunk SPL', 'Velociraptor', 'Suricata', 'Sysmon'],
+    date: 'May 2026',
+    pdfReport: null,
+    evidence: {
+      methodology: 'Applied F3EAD (Find, Fix, Finish, Exploit, Analyze, Disseminate) threat hunting methodology combined with MITRE ATT&CK framework for full kill-chain analysis. Adversary profiling covered initial access through encryption and exfiltration stages targeting FortiGate appliances in a 42-country WAN environment.',
+      findings: 'Identified FortiGate-targeting ransomware TTPs including exploitation of FortiOS vulnerabilities, credential harvesting, lateral movement patterns, pre-deployment reconnaissance, and staged encryption routines. All observed TTPs mapped to corresponding MITRE ATT&CK techniques and sub-techniques.',
+      recommendations: 'Deploy layered detection across SIEM (Splunk), network IDS (Suricata), and endpoint hunting (Velociraptor). Patch FortiGate devices against identified CVEs, enforce network segmentation at WAN boundaries, and implement FortiOS integrity monitoring.',
+      remediation: 'Complete detection engineering package including Sigma rules (platform-agnostic), Splunk SPL correlation searches, Suricata network signatures, and Velociraptor hunt artifacts — all directly targeting the identified ransomware TTPs.',
+    },
+  },
+  {
+    id: 'htb-001',
+    title: '[HTB Lab — Coming Soon]',
+    category: 'HTB Labs',
+    skills: ['[Skill 1]', '[Skill 2]', '[Skill 3]'],
+    description: '[HackTheBox machine or challenge writeup placeholder. Real entry will replace this once the write-up is published.]',
+    technologies: ['[Tool 1]', '[Tool 2]'],
+    date: '[Month Year]',
+    pdfReport: null,
+    evidence: {
+      methodology: '[Methodology details will be documented here — enumeration approach, exploitation path, privilege escalation technique.]',
+      findings: '[Key findings and vulnerabilities identified in the HTB machine/challenge will be detailed here.]',
+      recommendations: '[Remediation recommendations for the vulnerabilities discovered will be listed here.]',
+      remediation: '[Step-by-step fix guidance will be provided here.]',
+    },
+  },
+  {
+    id: 'bb-001',
+    title: '[Bug Bounty — Coming Soon]',
+    category: 'Bug Bounty',
+    skills: ['[Skill 1]', '[Skill 2]', '[Skill 3]'],
+    description: '[Bug bounty finding writeup placeholder. Real entry will replace this upon responsible disclosure and program approval.]',
+    technologies: ['[Tool 1]', '[Tool 2]'],
+    date: '[Month Year]',
+    pdfReport: null,
+    evidence: {
+      methodology: '[Methodology used to discover the vulnerability will be documented here — scope, recon approach, and testing techniques.]',
+      findings: '[Vulnerability details, CVSS score, and proof-of-concept will be documented here after disclosure is complete.]',
+      recommendations: '[Recommended fixes and mitigations for the reported vulnerability will be listed here.]',
+      remediation: '[Remediation guidance provided to the program will be detailed here.]',
+    },
+  },
 ];
 
 // ===================================
@@ -301,14 +359,14 @@ const cyberProjects = [
 const userCertificates = [
   {
     title: "AI Certificate",
-    issuer: "Your Institution",
+    issuer: "AfricaHackOn",
     date: "Dec 2024",
     link: "/certificates/Elvis-mbugua_certificate_AI.pdf",
     image: "/certificate-images/Elvis_Mbugua_AI.jpeg",
   },
   {
     title: "Software Development Certificate",
-    issuer: "Your Institution",
+    issuer: "Moringa School",
     date: "Nov 2024",
     link: "/certificates/Elvis _Software_Dev.jpeg",
     image: "/certificate-images/Elvis _Software_Dev.jpeg",

@@ -217,6 +217,7 @@ const Contact = () => {
   const socialLinks = [
     {
       name: 'Email',
+      subtitle: 'packetelvis@gmail.com',
       icon: <FaEnvelope />,
       url: 'mailto:packetelvis@gmail.com',
       color: 'from-red-500 to-orange-600',
@@ -224,6 +225,7 @@ const Contact = () => {
     },
     {
       name: 'GitHub',
+      subtitle: 'github.com/Elvis-Packet',
       icon: <FaGithub />,
       url: 'https://github.com/Elvis-Packet',
       color: 'from-gray-600 to-gray-800',
@@ -231,6 +233,7 @@ const Contact = () => {
     },
     {
       name: 'LinkedIn',
+      subtitle: 'Elvis Mbugua Muchiri',
       icon: <FaLinkedin />,
       url: 'https://www.linkedin.com/in/elvis-mbugua-89b177331/',
       color: 'from-blue-500 to-blue-700',
@@ -238,6 +241,7 @@ const Contact = () => {
     },
     {
       name: 'Instagram',
+      subtitle: '@packet_elvis',
       icon: <FaInstagram />,
       url: 'https://instagram.com/packet_elvis',
       color: 'from-pink-500 to-purple-600',
@@ -312,7 +316,7 @@ const Contact = () => {
                         </div>
                         <div className="flex-1">
                           <span className="font-semibold">{social.name}</span>
-                          <p className="text-sm opacity-90">{social.name === 'Email' ? 'Send me an email' : 'Follow me'}</p>
+                          <p className="text-sm opacity-90">{social.subtitle}</p>
                         </div>
                         <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <FaReply className="rotate-180" />
