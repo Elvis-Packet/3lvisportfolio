@@ -7,39 +7,46 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
+        manualChunks: (id) => {
           // Vendor chunks - React & friends
-          'react-vendor': ['react', 'react-dom'],
-          
+          if (id.includes('react') || id.includes('react-dom')) {
+            return 'react-vendor';
+          }
+
           // Animation libraries
-          'motion-vendor': ['framer-motion', 'motion', 'gsap'],
-          
+          if (id.includes('framer-motion') || id.includes('motion') || id.includes('gsap')) {
+            return 'motion-vendor';
+          }
+
           // Three.js core
-          'three-core': ['three'],
-          
+          if (id.includes('three') && !id.includes('@react-three')) {
+            return 'three-core';
+          }
+
           // React Three Fiber ecosystem (sangat berat!)
-          'r3f-vendor': [
-            '@react-three/fiber',
-            '@react-three/drei',
-            '@react-three/rapier',
-          ],
-          
+          if (id.includes('@react-three/fiber') || id.includes('@react-three/drei') || id.includes('@react-three/rapier')) {
+            return 'r3f-vendor';
+          }
+
           // Spline (berat juga!)
-          'spline-vendor': [
-            '@splinetool/react-spline',
-            '@splinetool/runtime',
-          ],
-          
+          if (id.includes('@splinetool/react-spline') || id.includes('@splinetool/runtime')) {
+            return 'spline-vendor';
+          }
+
           // Icons & UI
-          'ui-vendor': [
-            'react-icons',
-            'lucide-react',
-            'clsx',
-            'tailwind-merge',
-          ],
-          
+          if (id.includes('react-icons') || id.includes('lucide-react') || id.includes('clsx') || id.includes('tailwind-merge')) {
+            return 'ui-vendor';
+          }
+
           // Mesh utilities
-          'mesh-vendor': ['meshline'],
+          if (id.includes('meshline')) {
+            return 'mesh-vendor';
+          }
+
+          // PDF libraries
+          if (id.includes('react-pdf') || id.includes('pdfjs-dist')) {
+            return 'pdf-vendor';
+          }
         },
       },
     },

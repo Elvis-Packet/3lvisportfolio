@@ -1,0 +1,178 @@
+=====================================================================
+ELVIS MBUGUA MUCHIRI
+Cybersecurity Engineer | Penetration Tester
+=====================================================================
+
+Nairobi, Kenya
+Email: packetelvis@gmail.com
+Phone: +254 724 221 551
+LinkedIn: linkedin.com/in/elvis-mbugua
+Portfolio: 3lvismbugua.website
+GitHub: github.com/Elvis-Packet
+
+=====================================================================
+PROFESSIONAL SUMMARY
+=====================================================================
+
+Results-driven Cybersecurity Engineer with 3+ years of experience securing web applications, cloud infrastructure, and enterprise systems. Proven track record delivering 13+ production-grade secure applications while conducting OWASP-aligned security assessments that identified and remediated critical vulnerabilities. Combine hands-on software development expertise with offensive security skills to build and break systems—ensuring defense-in-depth from code to cloud.
+
+=====================================================================
+CORE COMPETENCIES
+=====================================================================
+
+SECURITY TESTING & ASSESSMENT
+• Web Application Penetration Testing (OWASP Top 10, API Security)
+• Vulnerability Assessment & Management
+• Cloud Security (AWS IAM, S3, EC2, Lambda)
+• Threat Hunting & Incident Response
+• OSINT & Reconnaissance
+
+DEVELOPMENT & DEVSECOPS
+• Secure SDLC Integration
+• CI/CD Pipeline Security (GitHub Actions)
+• Infrastructure as Code
+• Container Security (Docker)
+
+TOOLS & TECHNOLOGIES
+• Security: Burp Suite Professional, Nmap, Wireshark, Metasploit, Kali Linux, OWASP ZAP
+• Programming: Python, JavaScript (Node.js, React), SQL, Java
+• Cloud & Platforms: AWS (IAM, EC2, S3, Lambda, RDS), DigitalOcean, Vercel
+• Frameworks: React.js, Flask, Node.js, Express
+
+=====================================================================
+PROFESSIONAL EXPERIENCE
+=====================================================================
+
+CYBERSECURITY & FULL-STACK CONSULTANT | Freelance
+June 2023 – Present
+
+Deliver end-to-end security engineering and development services for startups and SMEs across Kenya and East Africa.
+
+Security Engineering Achievements:
+• Conducted comprehensive security assessments for 13 production web applications, identifying and remediating 47+ vulnerabilities including critical SQL injection, authentication bypasses, and sensitive data exposure
+• Implemented enterprise-grade security controls (JWT, OAuth2.0, MFA, RBAC) across 8 client applications, reducing unauthorized access incidents by 100%
+• Performed OWASP-aligned penetration tests on e-commerce platforms handling $50K+ monthly transactions, securing payment workflows and customer data
+• Designed and deployed secure CI/CD pipelines with automated security scanning, catching 85% of vulnerabilities pre-production
+
+Development & Architecture:
+• Architected and delivered 13 production applications (e-commerce, CMS, analytics dashboards, security tools) serving 5,000+ users
+• Built secure microservices architecture with JWT-based authentication serving 100+ API requests/second
+• Deployed fault-tolerant systems across AWS, DigitalOcean, and Vercel with 99.9% uptime SLA
+• Reduced infrastructure costs by 40% through cloud optimization and serverless architecture implementation
+
+---
+
+ODOO ERP DEVELOPER | Freelance
+January 2022 – May 2023
+
+Developed custom business automation solutions for small and medium enterprises.
+
+• Designed and deployed 6 custom Odoo modules automating inventory, sales, and procurement workflows—reducing manual processing time by 60%
+• Integrated third-party APIs (payment gateways, logistics providers, accounting systems) for 4 SME clients
+• Trained 15+ end-users on ERP best practices and system security, improving adoption rates to 95%
+• Optimized PostgreSQL database queries, improving report generation speed by 3x
+
+=====================================================================
+HANDS-ON CYBERSECURITY PROJECTS
+=====================================================================
+
+WEB APPLICATION SECURITY ASSESSMENT | HackerSavanna Platform (Feb 2026)
+• Discovered 6 critical vulnerabilities: Firebase API exposure, unrestricted user registration, password reset bypass, SQL injection, API endpoint disclosure, missing DMARC/SPF records
+• Delivered professional security assessment report with CVSS v3.1 scoring and remediation roadmap
+• Findings led to complete security overhaul protecting 2,000+ user accounts
+
+MOBILE APPLICATION SECURITY | Beetlebug CTF Challenge (Feb 2026)
+• Performed comprehensive Android APK security analysis using JADX, Frida, APKTool, and MobSF
+• Exploited 6 mobile vulnerabilities: hardcoded secrets, insecure storage, WebView attacks, SQLite forensics, binary patching
+• Demonstrated OWASP Mobile Top 10 security testing methodology
+
+CLOUD SECURITY ASSESSMENT | flaws.cloud AWS Labs (Apr 2026)
+• Identified and exploited 6 AWS misconfigurations: public S3 buckets, exposed EBS snapshots, Git credential leaks, EC2 metadata SSRF, IAM policy weaknesses, security group misconfigurations
+• Practiced cloud penetration testing using AWS CLI, demonstrating real-world cloud attack vectors
+• Documented AWS security hardening best practices aligned with CIS Benchmarks
+
+API SECURITY TESTING | OWASP crAPI Vulnerable Application (Feb 2026)
+• Identified critical API vulnerabilities: IDOR, broken authentication, excessive data exposure, rate limiting bypass, JWT manipulation, mass assignment
+• Applied OWASP API Security Top 10 testing methodology
+• Created proof-of-concept exploits demonstrating business impact of API security flaws
+
+WIRELESS SECURITY ASSESSMENT | Network Penetration Testing Lab (Jun 2026)
+• Conducted 802.11 wireless security testing using Aircrack-ng, Wireshark, and Kismet
+• Demonstrated WPA2-PSK attacks, WPS vulnerabilities, and rogue access point detection
+• Developed wireless security hardening recommendations for enterprise environments
+
+=====================================================================
+COMMUNITY & VOLUNTEER WORK
+=====================================================================
+
+THREAT HUNTING VOLUNTEER | OmniRoute Web Security Team (2025 – Present)
+• Analyze security logs, network traffic, and indicators of compromise for web platform serving 10K+ users
+• Assist in incident response and security monitoring activities
+
+SECURITY RESEARCHER | HackerSavannah Community (2024 – Present)
+• Participate in weekly penetration testing workshops and capture-the-flag competitions
+• Share security research findings with 200+ community members
+• Mentor junior security enthusiasts on ethical hacking fundamentals
+
+CTF COMPETITOR | AfricaHackOn Security Labs (2024 – Present)
+• Complete hands-on challenges: web exploitation, privilege escalation, OSINT, cryptography, digital forensics
+• Ranked in top 20% of participants across multiple CTF events
+
+=====================================================================
+NOTABLE PROJECTS
+=====================================================================
+
+SECURE E-COMMERCE PLATFORM
+• Full-stack e-commerce application with Stripe payment integration, RBAC controls, secure session management
+• Implemented input validation, SQL injection prevention, XSS protection, and CSRF tokens
+• Deployed on AWS with SSL/TLS encryption and automated backups
+
+AUTHENTICATION & SECURITY MICROSERVICE
+• Centralized authentication service supporting JWT, OAuth2.0, MFA (TOTP), and role-based access control
+• Used by 3 client applications with 500+ active users
+• Implements rate limiting, account lockout policies, and password complexity enforcement
+
+SECURITY AUDIT AUTOMATION TOOL
+• Python-based vulnerability scanner automating OWASP Top 10 checks
+• Generates PDF reports with CVSS scoring and remediation guidance
+• Integrates with CI/CD pipelines for continuous security testing
+
+REAL-TIME MESSAGING APPLICATION
+• Secure WebSocket-based chat platform with end-to-end encryption concepts
+• Implements authentication, authorization, input sanitization, and rate limiting
+• Handles 50+ concurrent connections with sub-200ms latency
+
+=====================================================================
+CERTIFICATIONS
+=====================================================================
+
+• Cybersecurity Professional Certificate – AfricaHackOn Foundation (2025)
+  Verified via Credly: credly.com/badges/27f75fc7-a30c-493f-b174-f32d5b26a3ec
+
+• Artificial Intelligence: Concepts & Applications – Moringa School (2024)
+
+• Software Development Certificate – Moringa School (2024)
+  Full-stack development, secure coding practices, agile methodologies
+
+=====================================================================
+EDUCATION
+=====================================================================
+
+BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY (CYBERSECURITY)
+KCA University | Expected Graduation: 2026
+
+Relevant Coursework: Network Security, Cryptography, Ethical Hacking, Database Security, Secure Software Development, Digital Forensics, Incident Response
+
+SOFTWARE DEVELOPMENT INTENSIVE
+Moringa School | 2024
+15-week immersive program covering full-stack development, secure coding, and agile methodologies
+
+=====================================================================
+ADDITIONAL INFORMATION
+=====================================================================
+
+Languages: English (Fluent), Swahili (Native)
+Interests: Bug bounty hunting, open-source security tools, cloud security automation, security research
+Availability: Open to full-time cybersecurity roles, contract penetration testing engagements, or remote security engineering positions
+
+=====================================================================

@@ -55,242 +55,178 @@ const PROJECT_CATEGORIES = ['All', 'Web Security', 'Cloud Security', 'Blue Team 
 const cyberProjects = [
   {
     id: 'ws-001',
-    title: 'Web & API Security Assessment',
+    title: 'HackerSavanna Web Application Security Assessment',
     category: 'Web Security',
-    skills: ['OWASP Top 10', 'API Security Testing', 'SQL Injection', 'XSS', 'Authentication Bypass'],
-    description: 'Comprehensive assessment of web application and API security vulnerabilities following the OWASP Testing Guide methodology, covering injection flaws, broken authentication, and API-specific vulnerabilities.',
-    technologies: ['Burp Suite', 'OWASP ZAP', 'Postman', 'Python', 'cURL'],
-    date: 'Mar 2025',
-    pdfReport: null,
+    skills: ['OWASP Top 10', 'Firebase Security', 'SQL Injection', 'SSRF', 'Authentication Testing', 'API Security'],
+    description: 'Comprehensive web application security assessment of HackerSavanna platform identifying critical vulnerabilities including Firebase API exposure, unrestricted user registration, password reset flaws, SQL injection, and email security misconfigurations.',
+    technologies: ['Burp Suite', 'Postman', 'SQLMap', 'Python', 'Firebase Analysis Tools'],
+    date: 'Jun 2026',
+    pdfReport: '/CY-projects/HackerSavannaSecurityAssessment_Report.pdf',
     evidence: {
-      methodology: 'Applied OWASP Testing Guide v4.2 methodology for both web application and API security testing. Used a combination of automated scanning and manual testing techniques to ensure comprehensive coverage.',
-      findings: 'Identified critical OWASP Top 10 vulnerabilities including SQL Injection, Cross-Site Scripting (XSS), Insecure Direct Object References (IDOR), and Broken Authentication mechanisms.',
-      recommendations: 'Implement parameterized queries, Content Security Policy (CSP) headers, proper session management, and API authentication best practices (OAuth 2.0 / JWT with proper validation).',
-      remediation: 'Documented remediation steps for each finding with CVSS v3.1 scores and prioritized fix timeline based on exploitability and impact.',
+      methodology: 'Applied OWASP Testing Guide v4.2 methodology with focus on authentication, authorization, and API security testing. Conducted both automated scanning and manual verification of security controls.',
+      findings: 'Identified 6 critical findings: (1) Firebase API key exposure allowing unauthorized database access, (2) Unrestricted user registration enabling account enumeration, (3) Password reset bypass vulnerability, (4) SQL injection in search parameters, (5) Sensitive API endpoint disclosure, (6) Missing DMARC/SPF email authentication records.',
+      recommendations: 'Implement Firebase Security Rules with strict authentication requirements, add rate limiting and CAPTCHA to registration endpoints, enforce secure password reset tokens with expiration, use parameterized queries for all database operations, implement API authentication with OAuth 2.0, and configure DMARC policy for email domain.',
+      remediation: 'All findings documented with CVSS v3.1 scores, proof-of-concept evidence, exploitation steps, and prioritized remediation roadmap. Complete professional security assessment report delivered to stakeholders.',
     },
   },
   {
     id: 'ws-002',
-    title: 'Mobile Application Security Testing',
+    title: 'Beetlebug Mobile Application Security CTF',
     category: 'Web Security',
-    skills: ['Android Security', 'SSL Pinning Bypass', 'APK Static Analysis', 'OWASP Mobile Top 10', 'Runtime Instrumentation'],
-    description: 'In-depth mobile application security assessment covering static APK analysis, dynamic runtime testing, root detection bypass, SSL pinning circumvention, and OWASP Mobile Top 10 vulnerability testing.',
-    technologies: ['Frida', 'Objection', 'Burp Suite', 'ADB', 'JADX', 'MobSF', 'apktool'],
-    date: 'Feb 2025',
-    pdfReport: null,
+    skills: ['Android Security', 'APK Static Analysis', 'Frida Instrumentation', 'Binary Patching', 'SQLite Forensics', 'WebView Security'],
+    description: 'Comprehensive mobile security assessment demonstrating advanced Android penetration testing skills through Beetlebug CTF challenges covering hardcoded secrets, insecure data storage, WebView vulnerabilities, database security, and binary exploitation.',
+    technologies: ['JADX', 'ADB', 'Frida', 'APKTool', 'SQLite Browser', 'Burp Suite', 'MobSF'],
+    date: 'Feb 2026',
+    pdfReport: '/CY-projects/Squad1_MOBILE_SECURITY.pdf',
     evidence: {
-      methodology: 'Used OWASP Mobile Security Testing Guide (MSTG) as the assessment framework. Conducted two-phase testing: static APK decompilation and analysis followed by dynamic runtime instrumentation.',
-      findings: 'Discovered insecure data storage in SharedPreferences, insufficient SSL pinning implementation, exported Android components without permissions, and hardcoded API keys embedded in production APK.',
-      recommendations: 'Implement certificate pinning using OkHttp CertificatePinner, encrypt sensitive data at rest using Android Keystore, restrict exported components with proper permissions, and remove all hardcoded secrets.',
-      remediation: 'Provided detailed remediation guidance with code samples for each vulnerability. Verified fixes via retest after developer remediation.',
-    },
-  },
-  {
-    id: 'ws-003',
-    title: 'Penetration Testing Assessment',
-    category: 'Web Security',
-    skills: ['Vulnerability Assessment', 'Exploitation', 'Privilege Escalation', 'Post-Exploitation', 'Professional Reporting'],
-    description: 'Full-scope penetration testing engagement covering reconnaissance, scanning, exploitation, post-exploitation, and professional deliverable reporting following industry-standard PTES methodology.',
-    technologies: ['Metasploit', 'Nmap', 'Burp Suite', 'Kali Linux', 'Hydra', 'SQLMap', 'John the Ripper'],
-    date: 'Mar 2025',
-    pdfReport: null,
-    evidence: {
-      methodology: 'Followed PTES (Penetration Testing Execution Standard) across all phases: pre-engagement, intelligence gathering, threat modeling, vulnerability analysis, exploitation, post-exploitation, and professional reporting.',
-      findings: 'Successfully identified and exploited multiple vulnerabilities including unpatched services (CVEs), weak credentials via brute-force, misconfigured access controls, and privilege escalation paths.',
-      recommendations: 'Establish a patch management program, enforce strong password policies and MFA, implement network segmentation, apply principle of least privilege across all systems.',
-      remediation: 'Comprehensive penetration test report with risk ratings (Critical/High/Medium/Low), proof-of-concept evidence, exploitation steps, and actionable remediation guidance with timelines.',
-    },
-  },
-  {
-    id: 'ws-004',
-    title: 'OSINT & Reconnaissance Assessment',
-    category: 'Web Security',
-    skills: ['OSINT', 'Google Dorking', 'DNS Enumeration', 'Passive Reconnaissance', 'Attack Surface Mapping'],
-    description: 'Systematic open-source intelligence gathering and reconnaissance exercise using advanced OSINT tools and techniques to map organizational attack surface and identify publicly exposed assets without direct target interaction.',
-    technologies: ['Maltego', 'Shodan', 'theHarvester', 'Recon-ng', 'WHOIS', 'DNSdumpster', 'SpiderFoot'],
-    date: 'Jan 2025',
-    pdfReport: null,
-    evidence: {
-      methodology: 'Passive and active reconnaissance using the OSINT Framework, advanced Google Dorking operators, and specialized reconnaissance tools to enumerate targets without triggering IDS alerts or leaving log traces.',
-      findings: 'Discovered exposed subdomains and shadow IT assets, leaked credentials in public GitHub repositories, misconfigured cloud storage buckets with public read access, and identifiable organizational personnel via LinkedIn.',
-      recommendations: 'Implement data loss prevention (DLP) policies, monitor public repositories for credential leaks via GitGuardian, configure proper DNS security (no zone transfers), and audit internet-facing asset inventory regularly.',
-      remediation: 'Attack surface reduction roadmap with prioritized steps to minimize exposed organizational footprint.',
+      methodology: 'Applied OWASP Mobile Security Testing Guide (MSTG) methodology. Conducted static APK decompilation using JADX, dynamic runtime analysis with Frida, database forensics, WebView security testing, and binary patching for protection bypass.',
+      findings: 'Successfully exploited 6 mobile security challenges: (1) Extracted hardcoded API keys from decompiled APK source code, (2) Recovered sensitive data from insecure SharedPreferences storage, (3) Exploited WebView JavaScript interface vulnerabilities, (4) Performed SQLite database forensics to extract hidden flags, (5) Bypassed binary protections through reverse engineering, (6) Identified insecure data transmission over cleartext channels.',
+      recommendations: 'Never hardcode secrets in APK - use Android Keystore, implement certificate pinning for network security, enable WebView security flags (setAllowFileAccess(false), setJavaScriptEnabled carefully), encrypt SQLite databases using SQLCipher, implement root detection and binary integrity checks, and enforce TLS 1.3 for all network communications.',
+      remediation: 'Complete mobile security assessment report with code-level recommendations, secure coding examples for Android developers, and OWASP Mobile Top 10 compliance checklist.',
     },
   },
   {
     id: 'cs-001',
-    title: 'AWS Cloud Security Assessment',
+    title: 'flaws.cloud AWS Security CTF Walkthrough',
     category: 'Cloud Security',
-    skills: ['AWS Security', 'IAM Policy Review', 'S3 Bucket Security', 'CloudTrail Analysis', 'CIS Benchmarks'],
-    description: 'Comprehensive AWS cloud security assessment covering IAM configuration review, S3 bucket policies, security group analysis, CloudTrail logging gaps, and compliance evaluation against CIS AWS Foundations Benchmark v2.0.',
-    technologies: ['AWS', 'CloudTrail', 'GuardDuty', 'Security Hub', 'IAM Access Analyzer', 'Prowler', 'ScoutSuite'],
-    date: 'Apr 2025',
-    pdfReport: null,
+    skills: ['AWS Security', 'S3 Misconfiguration', 'IAM Enumeration', 'EC2 Metadata SSRF', 'EBS Snapshot Forensics', 'Git Secrets'],
+    description: 'Practical AWS cloud security assessment covering S3 bucket enumeration, EBS snapshot analysis, Git repository credential extraction, EC2 instance metadata SSRF exploitation, IAM policy enumeration, and AWS security best practices.',
+    technologies: ['AWS CLI', 'S3 Browser', 'Git', 'AWS IAM', 'EC2 Metadata API', 'AWS Security Tools'],
+    date: 'Apr 2026',
+    pdfReport: '/CY-projects/flaws_cloud_Lab.pdf',
     evidence: {
-      methodology: 'Applied CIS AWS Foundations Benchmark v2.0 as the primary assessment framework. Systematically evaluated IAM configurations, S3 policies, network security controls, encryption settings, and monitoring coverage.',
-      findings: 'Identified overly permissive wildcard IAM policies, publicly accessible S3 buckets, root account usage without MFA, disabled CloudTrail in multiple regions, and unrestricted security group rules (0.0.0.0/0).',
-      recommendations: 'Enforce MFA on all privileged accounts, implement least-privilege IAM policies via Permission Boundaries, enable GuardDuty and Security Hub in all regions, block all S3 public access at account level, and configure AWS Config Rules for continuous compliance.',
-      remediation: 'Cloud security hardening plan with Terraform templates for automated remediation and AWS Config Rules for drift detection.',
+      methodology: 'Completed flaws.cloud security challenges demonstrating cloud security assessment skills. Systematically identified and exploited common AWS misconfigurations across S3, EC2, IAM, and storage services following AWS security best practices framework.',
+      findings: 'Successfully exploited 6 AWS security misconfigurations: (1) Level 1: Discovered publicly accessible S3 bucket through DNS enumeration, (2) Level 2: Analyzed public EBS snapshots to extract sensitive data, (3) Level 3: Found AWS credentials in exposed Git repository history, (4) Level 4: Exploited SSRF to access EC2 instance metadata and steal IAM credentials, (5) Level 5: Performed IAM policy enumeration to identify privilege escalation paths, (6) Level 6: Leveraged security group misconfigurations for unauthorized access.',
+      recommendations: 'Enable S3 Block Public Access at account level, encrypt EBS volumes and restrict snapshot sharing, implement Git-secrets pre-commit hooks to prevent credential leaks, disable IMDSv1 and enforce IMDSv2 with hop limit, apply least-privilege IAM policies using Permission Boundaries, and implement AWS GuardDuty for continuous threat detection.',
+      remediation: 'AWS security hardening guide with Terraform/CloudFormation templates for automated remediation, CIS AWS Foundations Benchmark compliance checklist, and continuous monitoring strategy using AWS Security Hub.',
     },
   },
   {
-    id: 'bt-001',
-    title: 'Incident Response Investigation',
-    category: 'Blue Team Operations',
-    skills: ['Incident Response', 'Threat Hunting', 'Log Analysis', 'Memory Forensics', 'Attack Chain Reconstruction'],
-    description: 'Hands-on incident response and threat hunting simulation covering a real-world breach scenario from initial detection through full containment, eradication, and recovery following the NIST IR lifecycle.',
-    technologies: ['Splunk', 'Wireshark', 'Volatility', 'Autopsy', 'Elastic SIEM', 'Velociraptor'],
-    date: 'May 2025',
-    pdfReport: null,
+    id: 'ws-003',
+    title: 'Completely Ridiculous API (crAPI) Security Assessment',
+    category: 'Web Security',
+    skills: ['API Security', 'OWASP API Top 10', 'IDOR', 'Mass Assignment', 'JWT Analysis', 'Rate Limiting Bypass'],
+    description: 'In-depth API security testing of OWASP crAPI vulnerable application demonstrating exploitation of common API vulnerabilities including broken authentication, excessive data exposure, lack of resource limiting, and business logic flaws.',
+    technologies: ['Burp Suite', 'Postman', 'JWT.io', 'Python', 'cURL', 'OWASP ZAP'],
+    date: 'Feb 2026',
+    pdfReport: '/CY-projects/Squad 1 Completely Ridiculous API.pdf',
     evidence: {
-      methodology: 'Applied NIST SP 800-61r2 Incident Response lifecycle (Preparation, Detection, Containment, Eradication, Recovery, Lessons Learned). Conducted memory forensics, log correlation, and network traffic analysis to reconstruct the full attack chain.',
-      findings: 'Identified attacker persistence via registry run key modification, lateral movement through pass-the-hash technique, C2 communication over HTTPS to cloud provider, and staged data exfiltration via DNS tunneling.',
-      recommendations: 'Deploy EDR solution with behavioral detection, improve SIEM alert tuning to reduce false negatives, implement network segmentation, establish formal IR playbooks per threat category, and enforce credential hygiene policies.',
-      remediation: 'Post-incident report with lessons learned, detection engineering improvements (new SIEM correlation rules), and preventive control recommendations.',
+      methodology: 'Applied OWASP API Security Top 10 testing methodology covering broken object level authorization, broken authentication, excessive data exposure, lack of resources and rate limiting, broken function level authorization, mass assignment, security misconfiguration, injection, improper assets management, and insufficient logging.',
+      findings: 'Successfully identified and exploited multiple API security vulnerabilities including IDOR allowing unauthorized access to user data, JWT manipulation for privilege escalation, mass assignment enabling unauthorized field updates, lack of rate limiting on sensitive endpoints, excessive data exposure in API responses, and broken authentication mechanisms.',
+      recommendations: 'Implement object-level authorization checks on all API endpoints, use strong JWT signing algorithms (RS256) with proper validation, whitelist allowed fields for mass assignment protection, enforce rate limiting on all endpoints especially authentication, minimize data exposure in API responses, and implement comprehensive API activity logging with SIEM integration.',
+      remediation: 'Complete API security assessment report with prioritized findings, proof-of-concept evidence for each vulnerability, remediation guidance aligned with OWASP API Security Top 10, and secure API development checklist.',
     },
   },
   {
-    id: 'bt-002',
-    title: 'Blue Team Essentials Operations',
-    category: 'Blue Team Operations',
-    skills: ['Security Monitoring', 'Alert Triage', 'Threat Intelligence', 'MITRE ATT&CK Mapping', 'Detection Engineering'],
-    description: 'Practical blue team operations training covering security monitoring, alert triage workflows, threat intelligence integration, and defensive detection techniques mapped to the MITRE ATT&CK framework.',
-    technologies: ['Splunk', 'TheHive', 'MISP', 'OpenCTI', 'Suricata', 'Zeek', 'Sigma'],
-    date: 'Apr 2025',
-    pdfReport: null,
+    id: 'ws-004',
+    title: 'HTB FortySeven1 Machine Walkthrough',
+    category: 'Web Security',
+    skills: ['Web Application Testing', 'Vulnerability Scanning', 'Exploitation', 'Privilege Escalation', 'Post-Exploitation'],
+    description: 'HackTheBox penetration testing walkthrough demonstrating systematic reconnaissance, vulnerability identification, exploitation, and privilege escalation techniques against a Linux target system.',
+    technologies: ['Nmap', 'Burp Suite', 'Metasploit', 'Gobuster', 'LinPEAS', 'GTFOBins'],
+    date: 'Apr 2026',
+    pdfReport: '/CY-projects/HTB-FortySeven1-Walkthrough.pdf',
     evidence: {
-      methodology: 'SOC simulation using industry-standard detection and response tools. Practiced alert triage workflows, threat intelligence consumption, and detection rule authoring using Sigma and Suricata rule formats.',
-      findings: 'Successfully detected and triaged phishing campaigns, credential stuffing attempts, and malware C2 beaconing. Mapped all detected TTPs to corresponding MITRE ATT&CK techniques and sub-techniques.',
-      recommendations: 'Integrate threat intelligence feeds (MISP), tune detection rules to reduce alert fatigue, implement structured threat hunting on a weekly cadence, and develop SOC runbooks for common attack patterns.',
-      remediation: 'Detection improvement package with new Sigma rules, Suricata signatures, and updated alert triage playbooks.',
-    },
-  },
-  {
-    id: 'bt-003',
-    title: 'Governance, Risk & Compliance Assessment',
-    category: 'Blue Team Operations',
-    skills: ['GRC Frameworks', 'Risk Assessment', 'ISO 27001', 'NIST CSF', 'Security Policy Development', 'Compliance Auditing'],
-    description: 'Governance, Risk and Compliance framework assessment covering security policy development, risk management methodology, and compliance gap analysis against ISO 27001 and NIST Cybersecurity Framework standards.',
-    technologies: ['NIST CSF', 'ISO 27001', 'GDPR Controls', 'Risk Matrices', 'GRC Platforms'],
-    date: 'Mar 2025',
-    pdfReport: null,
-    evidence: {
-      methodology: 'Applied NIST Cybersecurity Framework five functions (Identify, Protect, Detect, Respond, Recover) and ISO 27001 control objectives as assessment baselines. Conducted structured gap analysis comparing current security posture against both frameworks.',
-      findings: 'Identified gaps in security policy documentation coverage, absence of formal risk register, incomplete access control review processes, no business continuity test records, and insufficient security awareness training program.',
-      recommendations: 'Develop an information security policy suite aligned to ISO 27001 Annex A controls, implement a formal risk management program with quarterly reviews, establish a continuous compliance monitoring dashboard.',
-      remediation: 'GRC improvement roadmap with 90-day, 180-day, and 12-month milestones and KPIs for tracking compliance maturity progress.',
-    },
-  },
-  {
-    id: 'bt-004',
-    title: 'Security Report Writing',
-    category: 'Blue Team Operations',
-    skills: ['Technical Writing', 'CVSS v3.1 Scoring', 'Executive Reporting', 'Vulnerability Documentation', 'Risk Communication'],
-    description: 'Professional cybersecurity report writing covering vulnerability documentation standards, CVSS scoring methodology, executive summaries, and clear risk communication to both technical and non-technical stakeholders.',
-    technologies: ['CVSS Calculator', 'LaTeX', 'Markdown', 'Professional Templates'],
-    date: 'Feb 2025',
-    pdfReport: null,
-    evidence: {
-      methodology: 'Practiced structured penetration test report writing following industry templates from SANS, Offensive Security, and CREST. Applied CVSS v3.1 scoring for consistent vulnerability severity ratings across all findings.',
-      findings: 'Produced complete penetration testing reports including an executive summary accessible to non-technical stakeholders, detailed technical findings with proof-of-concept evidence, risk ratings, and step-by-step remediation guidance.',
-      recommendations: 'Use standardized CVE identifiers and CVSS scores for all findings, provide working proof-of-concept for each vulnerability, clearly separate executive and technical sections, and include a remediation priority matrix.',
-      remediation: 'Deliverable: professionally formatted penetration test report demonstrating clear, actionable communication of security findings to both C-suite and engineering audiences.',
-    },
-  },
-  {
-    id: 'bt-005',
-    title: 'Windows Security Fundamentals',
-    category: 'Blue Team Operations',
-    skills: ['Active Directory Security', 'Windows Event Log Analysis', 'Group Policy Hardening', 'PowerShell Security', 'Windows Defender'],
-    description: 'Comprehensive Windows security fundamentals covering Active Directory architecture, Group Policy security configuration, Windows event log analysis for threat detection, and system hardening against CIS benchmarks.',
-    technologies: ['Active Directory', 'PowerShell', 'Group Policy', 'Windows Event Viewer', 'Sysinternals Suite', 'LAPS'],
-    date: 'Jan 2025',
-    pdfReport: null,
-    evidence: {
-      methodology: 'Hands-on Windows environment assessment applying CIS Windows Server Benchmark v2.0 and Microsoft Security Baseline configurations. Evaluated AD trust relationships, privilege assignments, and audit policy coverage.',
-      findings: 'Identified excessive domain admin accounts, disabled Windows Defender on domain systems, insufficient Advanced Audit Policy configuration missing key event IDs, weak Group Policy password settings, and SYSVOL permissions allowing enumeration.',
-      recommendations: 'Implement LAPS for local admin password management, enable Credential Guard and Windows Defender ATP, apply Microsoft Security Baselines via GPO, configure PowerShell Constrained Language Mode, and enable Protected Users security group for privileged accounts.',
-      remediation: 'Windows hardening checklist with PowerShell automation scripts for CIS Benchmark compliance checking and automated baseline enforcement.',
+      methodology: 'Applied Penetration Testing Execution Standard (PTES) methodology: reconnaissance with Nmap port scanning, vulnerability analysis through manual testing, exploitation of identified vulnerabilities, privilege escalation using misconfigurations, and post-exploitation enumeration.',
+      findings: 'Successfully compromised target system through web application vulnerability, established initial foothold, enumerated system for privilege escalation vectors, exploited misconfigured SUID binaries and kernel vulnerabilities to gain root access.',
+      recommendations: 'Keep all software patched and updated, implement principle of least privilege for system permissions, remove unnecessary SUID/SGID binaries, harden web applications following OWASP guidelines, implement defense-in-depth with network segmentation and monitoring.',
+      remediation: 'Penetration test report documenting complete attack chain from reconnaissance to root access, including technical details of exploited vulnerabilities, proof-of-concept screenshots, and prioritized remediation steps.',
     },
   },
   {
     id: 'ns-001',
-    title: 'Network Security & Wireless Assessment',
+    title: 'Wireless Network Auditing & Penetration Testing',
     category: 'Network Security',
-    skills: ['Network Vulnerability Scanning', 'Wireless Protocol Analysis', 'WPA2/WPA3 Security', 'Firewall Rule Review', 'IDS/IPS Analysis'],
-    description: 'Comprehensive network security and wireless assessment covering network topology discovery, vulnerability scanning, 802.11 wireless protocol security analysis, encryption evaluation, and security control review.',
-    technologies: ['Nmap', 'Wireshark', 'Aircrack-ng', 'Kismet', 'Nessus', 'OpenVAS', 'Hashcat'],
-    date: 'Feb 2025',
-    pdfReport: null,
+    skills: ['Wireless Security', '802.11 Protocol Analysis', 'WPA2/WPA3 Testing', 'Rogue AP Detection', 'Packet Capture Analysis'],
+    description: 'Comprehensive wireless network security assessment covering 802.11 protocol analysis, encryption security testing, rogue access point detection, wireless packet capture analysis, and wireless attack vector demonstration.',
+    technologies: ['Aircrack-ng', 'Wireshark', 'Kismet', 'Reaver', 'Wifite', 'hcxdumptool'],
+    date: 'Jun 2026',
+    pdfReport: '/CY-projects/_C2A_ Wireless network auditing and pentesting,.docx.pdf',
     evidence: {
-      methodology: 'Systematic network reconnaissance and vulnerability scanning using industry-standard tools. Wireless assessment covered 802.11 protocol security analysis, encryption configuration audit, rogue AP detection, and client isolation verification.',
-      findings: 'Discovered exposed management interfaces on internal ports, multiple systems running outdated software with known CVEs, weak WPA2-Personal configurations susceptible to PMKID capture attacks, and flat network topology enabling lateral movement.',
-      recommendations: 'Implement network segmentation using VLANs with inter-VLAN firewall rules, upgrade wireless infrastructure to WPA3 or WPA2-Enterprise with 802.1X authentication, disable unnecessary management interfaces, and deploy IDS/IPS with signature updates.',
-      remediation: 'Network security hardening guide with configuration templates for Cisco, Fortinet, and pfSense environments covering all identified vulnerabilities.',
+      methodology: 'Conducted wireless security assessment following industry best practices for 802.11 wireless penetration testing. Performed passive reconnaissance, active scanning, encryption analysis, and demonstrated attack techniques against weak wireless configurations.',
+      findings: 'Identified wireless security weaknesses including weak WPA2-PSK passphrases susceptible to dictionary attacks, WPS PIN vulnerabilities, insecure wireless configuration allowing client isolation bypass, presence of rogue access points, and cleartext data transmission over wireless networks.',
+      recommendations: 'Upgrade to WPA3 encryption or WPA2-Enterprise with 802.1X authentication, disable WPS on all access points, implement strong wireless passphrase policies (minimum 20 characters), enable wireless client isolation, deploy wireless intrusion detection systems (WIDS), and enforce certificate-based authentication for enterprise networks.',
+      remediation: 'Wireless security hardening guide with configuration templates for enterprise wireless controllers, wireless security monitoring implementation plan, and ongoing wireless security audit procedures.',
     },
   },
   {
     id: 'ns-002',
-    title: 'Networking Fundamentals Lab',
+    title: 'Network Traffic Analysis - Wireshark & Snort',
     category: 'Network Security',
-    skills: ['TCP/IP Protocol Stack', 'Packet Analysis', 'Routing Protocols', 'Switching & VLANs', 'Network Troubleshooting'],
-    description: 'Foundational networking lab covering the TCP/IP protocol stack, live packet capture and analysis, routing protocol behavior, switching technologies, and network troubleshooting methodologies essential for cybersecurity operations.',
-    technologies: ['Wireshark', 'Cisco Packet Tracer', 'GNS3', 'tcpdump', 'Nmap', 'iproute2'],
-    date: 'Nov 2024',
-    pdfReport: null,
+    skills: ['Packet Analysis', 'Wireshark Proficiency', 'IDS/IPS Configuration', 'Snort Rule Writing', 'Network Forensics'],
+    description: 'Hands-on network traffic analysis and intrusion detection covering packet capture techniques, Wireshark analysis methodology, Snort IDS rule development, attack signature identification, and network forensics procedures.',
+    technologies: ['Wireshark', 'Snort', 'tcpdump', 'NetworkMiner', 'Zeek'],
+    date: 'Jun 2026',
+    pdfReport: '/CY-projects/C1A_ Wireshark & Snort.pdf',
     evidence: {
-      methodology: 'Hands-on lab exercises using network simulation tools (GNS3, Packet Tracer) and live packet captures. Analyzed network traffic patterns, protocol handshakes, and behavioral signatures relevant to security monitoring.',
-      findings: 'Demonstrated understanding of TCP three-way handshakes, ARP poisoning indicators, DNS query patterns, ICMP-based reconnaissance signatures, and common network attack traffic patterns visible in packet captures.',
-      recommendations: 'Deploy network security monitoring with Zeek/Bro or Suricata for passive detection, implement ARP inspection and DHCP snooping on switches, encrypt all management traffic (SSH over Telnet), and monitor DNS for anomalous query patterns.',
-      remediation: 'Network monitoring implementation guide with detection signatures for common Layer 2-4 attacks and baseline traffic profiling methodology.',
+      methodology: 'Practiced network traffic analysis using Wireshark for deep packet inspection and protocol analysis. Configured Snort IDS with custom rule development, analyzed network traffic patterns to identify malicious activity, and performed network forensics investigations.',
+      findings: 'Successfully identified various network-based attacks in packet captures including port scanning signatures, SQL injection attempts, credential stuffing traffic patterns, malware C2 beaconing, and data exfiltration attempts. Developed custom Snort rules for attack detection.',
+      recommendations: 'Deploy network intrusion detection/prevention systems (IDS/IPS) at network boundaries and critical segments, implement full packet capture for forensic investigations, develop custom detection signatures for organization-specific threats, tune alert thresholds to reduce false positives, and integrate IDS alerts with SIEM platform.',
+      remediation: 'Network security monitoring implementation guide with Snort/Suricata deployment architecture, custom detection rule library, packet capture retention policy, and SOC analyst training materials.',
     },
   },
   {
     id: 'ns-003',
-    title: 'Linux Systems Administration',
+    title: 'Linux CLI & File System Navigation',
     category: 'Network Security',
-    skills: ['Linux Administration', 'System Hardening', 'Audit Log Analysis', 'File Permission Management', 'Service Security Configuration'],
-    description: 'Comprehensive Linux systems administration covering command-line proficiency, user and group management, system hardening procedures, audit log analysis, and secure service configuration for security operations environments.',
-    technologies: ['Linux (Ubuntu/Debian)', 'Bash', 'SSH', 'iptables/nftables', 'Auditd', 'rsyslog', 'fail2ban'],
-    date: 'Nov 2024',
-    pdfReport: null,
+    skills: ['Linux Command Line', 'Bash Scripting', 'File System Analysis', 'System Administration', 'Log Analysis'],
+    description: 'Fundamental Linux command-line interface proficiency covering navigation, file manipulation, process management, permissions, shell scripting, and essential administrative tasks critical for security operations.',
+    technologies: ['Linux (Ubuntu/Kali)', 'Bash', 'Vim', 'grep/awk/sed', 'find', 'systemctl'],
+    date: 'Oct 2025',
+    pdfReport: '/CY-projects/C1A_ Linux CLI & File System Navigation .pdf',
     evidence: {
-      methodology: 'Practical Linux administration exercises applying CIS Linux Benchmark Level 1 and Level 2 hardening requirements. Configured secure services, implemented comprehensive audit logging, and reduced the attack surface through service minimization.',
-      findings: 'Applied 85% of CIS Benchmark controls including SSH hardening (disabled root login, key-only auth), configured auditd for privilege escalation monitoring, removed unnecessary SUID/SGID binaries, and implemented iptables rules.',
-      recommendations: 'Enable automatic security updates, configure fail2ban for SSH brute-force protection, implement PAM password policies, enable SELinux or AppArmor mandatory access controls, and centralize log forwarding to SIEM.',
-      remediation: 'Linux hardening Bash script with automated CIS Benchmark compliance checks and a scoring report showing percentage compliance before and after hardening.',
+      methodology: 'Completed hands-on Linux CLI exercises covering essential commands for file system navigation, text processing, process management, user administration, and basic security hardening. Developed Bash scripting skills for security automation tasks.',
+      findings: 'Demonstrated proficiency in Linux command-line operations including directory traversal, file searching with find/grep, log analysis with awk/sed, permission management, service administration, and bash scripting for security automation.',
+      recommendations: 'Maintain strong Linux command-line proficiency as foundational skill for security operations, practice regular log analysis using CLI tools, develop security automation scripts for common tasks, and understand Linux file system structure for incident response and forensics.',
+      remediation: 'Linux fundamentals competency achieved. Continued practice recommended with advanced topics including advanced bash scripting, system hardening, and security automation.',
     },
   },
   {
-    id: 'ma-001',
-    title: 'Malware Analysis Lab',
-    category: 'Malware Analysis',
-    skills: ['Static Malware Analysis', 'Dynamic Sandbox Analysis', 'Reverse Engineering', 'IOC Extraction', 'YARA Rule Writing'],
-    description: 'Comprehensive malware analysis covering both static and dynamic analysis techniques, including PE file analysis, disassembly, behavioral analysis in isolated sandbox environments, and actionable threat intelligence extraction.',
-    technologies: ['Ghidra', 'Cuckoo Sandbox', 'IDA Pro Free', 'PEiD', 'PEStudio', 'VirusTotal', 'REMnux', 'FLARE VM'],
-    date: 'May 2025',
-    pdfReport: null,
+    id: 'ws-005',
+    title: 'OSINT & Reconnaissance Operations',
+    category: 'Web Security',
+    skills: ['OSINT', 'Subdomain Enumeration', 'Google Dorking', 'DNS Reconnaissance', 'Passive Information Gathering'],
+    description: 'Open-source intelligence gathering and reconnaissance operations covering passive and active information collection, subdomain enumeration, DNS analysis, metadata extraction, and attack surface mapping.',
+    technologies: ['theHarvester', 'Sublist3r', 'Amass', 'Shodan', 'Maltego', 'Google Dorks', 'DNSdumpster'],
+    date: 'Jun 2026',
+    pdfReport: '/CY-projects/Recon Assignment.pdf',
     evidence: {
-      methodology: 'Two-phase analysis: Phase 1 (Static) used disassemblers and PE analysis tools to examine file structure, strings, imports, and code flow without execution. Phase 2 (Dynamic) executed samples in an isolated Cuckoo Sandbox to capture behavioral indicators.',
-      findings: 'Successfully analyzed Ransomware, Remote Access Trojan (RAT), and Trojan downloader samples. Extracted IOCs including C2 server IP/domain addresses, mutex names, registry persistence keys, dropped file hashes, and network communication patterns.',
-      recommendations: 'Deploy EDR with behavioral blocking on all endpoints, implement application whitelisting using AppLocker or Carbon Black, block identified IOCs at perimeter firewall and DNS sinkholes, and enhance email gateway with sandbox detonation.',
-      remediation: 'Threat intelligence report with extracted IOCs in STIX/TAXII format, custom YARA detection rules for identified malware families, and endpoint hardening recommendations.',
+      methodology: 'Conducted systematic reconnaissance using OSINT techniques and tools for passive information gathering. Performed subdomain enumeration, DNS zone analysis, Google dorking for sensitive information exposure, metadata analysis, and compiled comprehensive target intelligence profile.',
+      findings: 'Successfully identified exposed subdomains and hidden assets, discovered sensitive information through Google dorking including exposed configuration files and credentials, enumerated email addresses and personnel through passive sources, identified technology stack and infrastructure details, and mapped organizational attack surface.',
+      recommendations: 'Implement data loss prevention (DLP) policies to prevent sensitive information leakage, monitor public-facing assets for exposed configuration files and credentials, secure DNS configurations against zone transfers, implement proper robots.txt and metadata sanitization, and maintain inventory of internet-facing assets.',
+      remediation: 'OSINT findings report with identified information leakage, exposed assets inventory, attack surface map, and recommendations for reducing organizational footprint on public internet.',
     },
   },
   {
-    id: 'bt-006',
-    title: 'Security Scripting & Automation',
+    id: 'bt-001',
+    title: 'Windows Exploitation & Security Fundamentals',
     category: 'Blue Team Operations',
-    skills: ['Python Security Scripting', 'Bash Automation', 'Security Tool Development', 'Log Parsing', 'REST API Integration'],
-    description: 'Development of security automation tools and scripts using Python and Bash for vulnerability scanning workflows, log parsing pipelines, threat detection automation, and security operations integration.',
-    technologies: ['Python 3', 'Bash', 'Git', 'REST APIs', 'JSON/YAML', 'Requests', 'Scapy'],
-    date: 'Jan 2025',
-    pdfReport: null,
+    skills: ['Windows Security', 'Privilege Escalation', 'Active Directory', 'PowerShell', 'Event Log Analysis'],
+    description: 'Windows operating system security fundamentals covering common exploitation techniques, privilege escalation methods, Active Directory security, PowerShell security features, and defensive hardening measures.',
+    technologies: ['Windows Server', 'PowerShell', 'Metasploit', 'Mimikatz', 'BloodHound', 'Sysinternals'],
+    date: 'Dec 2025',
+    pdfReport: '/CY-projects/Windows Exploitation Assignments & Resources.pdf',
     evidence: {
-      methodology: 'Developed security automation tools following secure coding practices (OWASP Secure Coding Guidelines). Built tools covering log analysis automation, port scanning utilities, IOC lookup integrations, and automated report generation.',
-      findings: 'Created functional security tools including: automated log analyzer detecting common attack patterns, port scanner with service fingerprinting, VirusTotal API integration for hash reputation lookups, and a templated penetration test report generator.',
-      recommendations: 'Apply secure coding principles (input validation, error handling, no hardcoded secrets), implement automated code scanning (Bandit for Python), use dependency vulnerability scanning (Safety), and document all tool capabilities and limitations.',
-      remediation: 'Code security review report with remediation applied. Final tools published to private Git repository with README documentation and usage examples.',
+      methodology: 'Studied Windows security architecture, common exploitation techniques, privilege escalation paths, Active Directory attack vectors, and defensive security controls. Practiced both offensive and defensive Windows security techniques.',
+      findings: 'Demonstrated understanding of Windows privilege escalation techniques including unquoted service paths, weak permissions, registry manipulation, token impersonation, Active Directory attack paths via Kerberoasting and AS-REP roasting, and PowerShell security bypass methods.',
+      recommendations: 'Implement Windows hardening following CIS Benchmarks and Microsoft Security Baselines, deploy LAPS for local admin password management, enable PowerShell logging and constrained language mode, configure Advanced Audit Policy for security monitoring, implement tiered administrative model for AD, and deploy EDR with behavioral detection.',
+      remediation: 'Windows security fundamentals completed with understanding of both attack and defense perspectives. Recommended next steps include hands-on Active Directory security lab and advanced Windows forensics training.',
+    },
+  },
+  {
+    id: 'bt-002',
+    title: 'Secure Coding & MySQL Integration',
+    category: 'Blue Team Operations',
+    skills: ['Secure Coding', 'SQL Injection Prevention', 'Input Validation', 'MySQL Security', 'Parameterized Queries'],
+    description: 'Secure coding practices for database integration covering SQL injection prevention, input validation techniques, parameterized queries, MySQL security hardening, and secure application development lifecycle.',
+    technologies: ['Python', 'MySQL', 'PHP', 'Prepared Statements', 'Input Validation Libraries'],
+    date: 'Jun 2026',
+    pdfReport: '/CY-projects/_C1A_ Coding & MySQL Integration.docx.pdf',
+    evidence: {
+      methodology: 'Studied secure coding practices for database integration with focus on OWASP guidelines for injection prevention. Implemented parameterized queries, input validation, output encoding, and MySQL security configurations.',
+      findings: 'Demonstrated secure coding techniques including use of prepared statements for SQL injection prevention, proper input validation and sanitization, implementation of least-privilege database accounts, secure session management, and proper error handling without information disclosure.',
+      recommendations: 'Always use parameterized queries/prepared statements for database operations, implement server-side input validation with whitelist approach, apply principle of least privilege for database accounts, enable MySQL query logging for security monitoring, implement web application firewalls (WAF) as defense-in-depth, and conduct regular secure code reviews.',
+      remediation: 'Secure coding fundamentals achieved with emphasis on injection prevention. Continued practice recommended with advanced topics including OAuth implementation, cryptographic best practices, and security testing integration in CI/CD.',
     },
   },
 ];
@@ -312,6 +248,15 @@ const userCertificates = [
     date: "Nov 2024",
     link: "/certificates/Elvis _Software_Dev.jpeg",
     image: "/certificate-images/Elvis _Software_Dev.jpeg",
+  },
+  {
+    title: "Cybersecurity Professional Certificate",
+    issuer: "Africa Hackon",
+    date: "Jun 2025",
+    link: "/certificates/Swara20260617-31-q7ke1m.pdf",
+    image: "/certificate-images/africahackon-cyber-security-swara.png",
+    credlyUrl: "https://www.credly.com/badges/27f75fc7-a30c-493f-b174-f32d5b26a3ec/public_url",
+    description: "Professional Cybersecurity Certification verified by Credly"
   },
 ];
 
@@ -573,18 +518,20 @@ const EvidenceModal = ({ project, onClose }) => {
                   href={project.pdfReport}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-600 to-emerald-600 hover:from-cyan-500 hover:to-emerald-500 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 sm:px-6 py-3 bg-gradient-to-r from-cyan-600 to-emerald-600 hover:from-cyan-500 hover:to-emerald-500 text-white text-sm sm:text-base font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5"
                 >
-                  <FaEye />
-                  View Evidence
+                  <FaEye className="text-sm sm:text-base" />
+                  <span className="hidden xs:inline">View Evidence</span>
+                  <span className="xs:hidden">View</span>
                 </a>
                 <a
                   href={project.pdfReport}
                   download
-                  className="flex-1 flex items-center justify-center gap-2 px-6 py-3 dark:bg-slate-700 bg-slate-200 dark:hover:bg-slate-600 hover:bg-slate-300 dark:text-white text-slate-700 font-bold rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 sm:px-6 py-3 dark:bg-slate-700 bg-slate-200 dark:hover:bg-slate-600 hover:bg-slate-300 dark:text-white text-slate-700 text-sm sm:text-base font-bold rounded-xl transition-all duration-300 hover:-translate-y-0.5"
                 >
-                  <FaDownload />
-                  Download PDF
+                  <FaDownload className="text-sm sm:text-base" />
+                  <span className="hidden xs:inline">Download PDF</span>
+                  <span className="xs:hidden">Download</span>
                 </a>
               </div>
             ) : (
@@ -683,33 +630,52 @@ const CertificatePreviewModal = ({ certificate, onClose }) => {
           </button>
         </div>
 
-        <div className="w-full md:w-3/5 relative min-h-[300px] md:min-h-[500px] bg-slate-900">
+        {/* Certificate Display */}
+        <div className="w-full md:w-3/5 relative min-h-[300px] md:min-h-[500px] dark:bg-slate-900 bg-slate-100 flex items-center justify-center">
           <img src={certificate.image} alt={certificate.title} className="absolute inset-0 w-full h-full object-contain p-4 bg-slate-950/50" />
         </div>
 
-        <div className="w-full md:w-2/5 p-8 flex flex-col justify-center dark:bg-slate-900/50 bg-white">
+        <div className="w-full md:w-2/5 p-6 md:p-8 flex flex-col justify-center dark:bg-slate-900/50 bg-white">
           <div className="mb-6">
             <div className="inline-block px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold tracking-wider mb-4">
               {certificate.issuer}
             </div>
-            <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-2 leading-tight">{certificate.title}</h2>
-            <p className="text-slate-400 font-mono text-sm">{certificate.date}</p>
+            <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-2 leading-tight">{certificate.title}</h2>
+            <p className="dark:text-slate-400 text-slate-600 font-mono text-sm">{certificate.date}</p>
           </div>
 
-          <div className="space-y-4 mt-auto">
+          {certificate.description && (
+            <p className="text-sm dark:text-slate-400 text-slate-600 mb-6 leading-relaxed">
+              {certificate.description}
+            </p>
+          )}
+
+          <div className="space-y-3 mt-auto">
             <a
               href={certificate.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-cyan-500/25 group"
+              className="flex items-center justify-center gap-2 w-full px-4 md:px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white text-sm md:text-base font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-cyan-500/25 group"
             >
-              <FaDownload className="group-hover:animate-bounce" />
-              <span>Download / View PDF</span>
+              <FaDownload className="group-hover:scale-110 transition-transform" />
+              <span>Download Certificate</span>
             </a>
+
+            {certificate.credlyUrl && (
+              <a
+                href={certificate.credlyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full px-4 md:px-6 py-3 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white text-sm md:text-base font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-emerald-500/25 group"
+              >
+                <FaEye className="group-hover:scale-110 transition-transform" />
+                <span>Verify on Credly</span>
+              </a>
+            )}
 
             <button
               onClick={onClose}
-              className="w-full px-6 py-3 dark:bg-slate-800 bg-slate-200 dark:hover:bg-slate-700 hover:bg-slate-300 dark:text-slate-300 text-slate-700 font-semibold rounded-xl transition-all duration-300"
+              className="w-full px-4 md:px-6 py-3 dark:bg-slate-800 bg-slate-200 dark:hover:bg-slate-700 hover:bg-slate-300 dark:text-slate-300 text-slate-700 text-sm md:text-base font-semibold rounded-xl transition-all duration-300"
             >
               Close Preview
             </button>
@@ -935,8 +901,10 @@ function ProjectSection() {
                               title: cert.title,
                               issuer: cert.issuer,
                               date: cert.issue_date ? new Date(cert.issue_date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : '',
-                              link: cert.credential_url || '#',
+                              link: cert.credential_url || cert.certificate_url || '#',
                               image: cert.image_url || '',
+                              credlyUrl: cert.credly_url || null,
+                              description: cert.description || ''
                             } : cert;
                             return <CertificateCard key={cert.id || i} cert={certData} onClick={setPreviewCertificate} />;
                           })}
